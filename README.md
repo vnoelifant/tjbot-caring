@@ -42,16 +42,16 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * This is one of the big sretch goals, so if there are issues, or it is too timily to implement, go back and optimize existing functionalities (for instance, explore the facial recognition and Twitter API capabilities)
 
 * Week 3/4/19
- *  Continue Step 4
- *  Test, debug, refine
- *  If not implementing Step 4, continue optimizing other functionalities
+  * Continue Step 4
+  * Test, debug, refine
+  * If not implementing Step 4, continue optimizing other functionalities
 
 * Week 3/11/19
- * Execute working tests
- * Begin final report and video
- * Work on finalizing Github repo
+  * Execute working tests
+  * Begin final report and video
+  * Work on finalizing Github repo
 
 * Week 3/18/19
- * Clean up any of the remaining final tasks (report/video/repo)
- * Prepare for demo
+  * Clean up any of the remaining final tasks (report/video/repo)
+  * Prepare for demo
 
