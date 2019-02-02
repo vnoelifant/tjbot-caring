@@ -6,7 +6,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 * Week 1/21/19
   * Get the robot fully functional (get the arm waving)
-  * Figure out what is needed for IBM Clound/Watson Services
+  * Figure out what is needed for IBM Cloud/Watson Services
     * What services do I need?
     * What do the services do?
     * Why do I think I need the services?
