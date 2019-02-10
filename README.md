@@ -14,25 +14,26 @@ This is a project to build/program a simple, caring emotionally intelligent robo
     * What are the restrictions
     * Create the Watson services
   
-  ### **Meeting Agenda**:
-  #### What was accomplished? 
-  * Got Rpi headless, configured wifi and remote desktop access
-  * Researched the services I need
-  * Ran arm wave IBM jbot recipe demo with success.  Ran other tjbot recipe tests for speaker check, camera check, LED check, servo check.
+  * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Got Rpi headless, configured wifi and remote desktop access
+      * Researched the services I need
+      * Ran arm wave IBM jbot recipe demo with success.  Ran other tjbot recipe tests for speaker check, camera check, LED check, servo check.
 
-  * TODO: Week 1/28 goals, create git clone of project on the Raspberry Pi
+      * TODO: 
+        * Week 1/28 goals, create git clone of project on the Raspberry Pi
 
-  * What problems were encountered? 
-    * None major, slight issues with configuring wifi
+    * #### What problems were encountered? 
+      * None major, slight issues with configuring wifi
 
-  * What are the challenges for the coming week?  
-    * Updating the config file to use API key and URL vs username and pw,  learning NODE.js 
+    * #### What are the challenges for the coming week?  
+      * Updating the config file to use API key and URL vs username and pw,  learning NODE.js 
 
-  ### **Meeting Minutes**:
-    * Comments from Matthew:
+  * ### **Meeting Minutes**:
+    * **Comments from Matthew**:
       * Git workflow suggestions
       * Suggestions on implementing the tone test. Simple action/respone test where LED can shine based on tone, as an example. 
-    * Comments from Team:
+    * **Comments from Team**:
       *  N/A
 
 * ## **Week 1/28/19**
@@ -42,36 +43,36 @@ This is a project to build/program a simple, caring emotionally intelligent robo
     * Plan out how to go beyond existing demos (ideas are in the proposal)
     * Execute tests
 
-  ### **Meeting Agenda**:
-  #### What was accomplished? 
-  * Configured cloud connectivity 
-  * Configured git clone on Raspberry Pi 
-  * Updated configuration files ready for testing speech to text, tone analysis, text to speech, and Watson Assistant conversation. 
-  * Tested another recipe that tests user asking TJBot to shine a disco light with success 
-  * Tested Conversation but need to reconfigure speaker
-  * Modified a script from a sentiment analysis recipe that allows TJBot to shine his light based on various moods (analyzed via speech to text). The moods tested were fear, anger, sadness, and joy. 
-  * Researched github licensing to prepare for git push 
+  * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Configured cloud connectivity 
+      * Configured git clone on Raspberry Pi 
+      * Updated configuration files ready for testing speech to text, tone analysis, text to speech, and Watson Assistant conversation. 
+      * Tested another recipe that tests user asking TJBot to shine a disco light with success 
+      * Tested Conversation but need to reconfigure speaker
+      * Modified a script from a sentiment analysis recipe that allows TJBot to shine his light based on various moods (analyzed via speech to text). The moods tested were fear, anger, sadness, and joy. 
+      * Researched github licensing to prepare for git push 
  
-  * TODO: 
-    * Week 2/4 goals
-      * Refine test 2 for tone (think of ways for TJ to converse and respond)
-    * Push to git ensuring the proper citations and license information is included
+      * TODO: 
+        * Week 2/4 goals
+        * Refine test 2 for tone (think of ways for TJ to converse and respond)
+        * Push to git ensuring the proper citations and license information is included
     
 
-  * What problems were encountered? 
-    * General research, finding examples 
-    * Debugging 
-      * Figuring out how to modify Javascript code. 
-      * Speaker connected to 3.5 mm jack doesnt work well. It was suggested online to use bluetooth or usb to 3.5mm adaptor. 
+    * #### What problems were encountered? 
+      * General research, finding examples 
+      * Debugging 
+        * Figuring out how to modify Javascript code. 
+        * Speaker connected to 3.5 mm jack doesnt work well. It was suggested online to use bluetooth or usb to 3.5mm adaptor. 
 
-  * What are the challenges for the coming week?  
-    * Learning  more NODE.js /Javascript for adding more code functionality
-    * Updating speaker configuration
+    * #### What are the challenges for the coming week?  
+      * Learning  more NODE.js /Javascript for adding more code functionality
+      * Updating speaker configuration
 
-   ### **Meeting Minutes**:
-    * Comments from Matthew:
+  * ### **Meeting Minutes**:
+    * **Comments from Matthew**:
       * Importance of continually pushing to Git.
-    * Comments from Team:
+    * **Comments from Team**:
       *  Does the tone analyze speech directly? As it only analyzes tone in the text, I thought this question gave me good insight on improvments for the future. 
 
 * ## **Week 2/4/19**
