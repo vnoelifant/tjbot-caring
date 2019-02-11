@@ -50,8 +50,12 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * Updated configuration files ready for testing speech to text, tone analysis, text to speech, and Watson Assistant conversation. 
       * Tested another recipe that tests user asking TJBot to shine a disco light with success 
       * Tested Conversation but need to reconfigure speaker
-      * Modified a script from a sentiment analysis recipe that allows TJBot to shine his light based on various moods (analyzed via speech to text). The moods tested were fear, anger, sadness, and joy. 
+      * Modified a script from a sentiment analysis recipe that allows TJBot to shine his light based on various moods (analyzed via speech to text). 
+      The moods tested were fear, anger, sadness, and joy. 
+        * See the video below to see this test in action! 
+        [![IMAGE ALT TEXT](http://img.youtube.com/vi/PSf8poqBWfQ/0.jpg)](http://www.youtube.com/watch?v=PSf8poqBWfQ "TJBot LED Lights up Based on Emotion")
       * Researched github licensing to prepare for git push 
+        
  
       * TODO: 
         * Week 2/4 goals
