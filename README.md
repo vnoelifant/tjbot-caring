@@ -109,3 +109,6 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * Clean up any of the remaining final tasks (report/video/repo)
   * Prepare for demo
 
+## License/Notes
+ * This project is licensed under the Apache License, Version 2.0. Full license text is available here: [LICENSE](../LICENSE.txt). This project includes code modifications from IBM's TJBot recipe code [sentiment_analysis](https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js) The [NOTICE](../NOTICE.txt) file includes more information on the original work, and the original copyright notice and proper citations are included in the [source code](../tj_human_interaction.js). 
+
