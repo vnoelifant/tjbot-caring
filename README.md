@@ -51,16 +51,19 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * Tested another recipe that tests user asking TJBot to shine a disco light with success 
       * Tested Conversation but need to reconfigure speaker
       * Modified a script from a sentiment analysis recipe that allows TJBot to shine his light based on various moods (analyzed via speech to text). 
-      The moods tested were fear, anger, sadness, and joy. 
-        * See the video below to see this test in action!
+      The moods tested were sadness, happiness, anger, and fear. 
+        * See the videos below  to see this tests in action! 
           
-          * Sadness  
+        Sadness:
         [![IMAGE ALT TEXT](http://img.youtube.com/vi/CHtvny04RFA/0.jpg)](http://www.youtube.com/watch?v=CHtvny04RFA "TJBot LED Responds to Sadness")
-         * Happiness  
+         
+        Happiness
         [![IMAGE ALT TEXT](http://img.youtube.com/vi/2qLOB8AL_NU/0.jpg)](http://www.youtube.com/watch?v=2qLOB8AL_NU "TJBot LED Responds to Joy")
-         * Anger 
+        
+        Anger:
         [![IMAGE ALT TEXT](http://img.youtube.com/vi/em58ocSdvI8/0.jpg)](http://www.youtube.com/watch?v=em58ocSdvI8 "TJBot LED Responds to Anger")
-         * Fear 
+        
+        Fear:
         [![IMAGE ALT TEXT](http://img.youtube.com/vi/eUPryh5006c/0.jpg)](http://www.youtube.com/watch?v=eUPryh5006c "TJBot LED Responds to Fear")
       * Researched github licensing to prepare for git push 
         
