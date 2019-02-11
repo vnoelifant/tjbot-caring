@@ -40,8 +40,8 @@
 
 /**
  * The following  code to import modules, load config file, set up hardware,
- *set up TJBot and set the confidence bound was obtained from
- * //https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/
+ * set up TJBot and set the confidence bound was obtained from
+ * https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/
  * sentiment.js on 2/5/19. A slight modification to add a microphone to
  * hardware configuration is implemented. Detailed citation shown below:
  */
@@ -83,8 +83,12 @@ function speechToText(text) {
     // print text to console
     console.log(text);
 
-    /* The following  utility method "analyzeTone" and its code was obtained from // https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js on 2/5/19. Minor function name change from "shineForEmotion" to "shineLedEmo". Detailed citation shown below:
-    */
+    /**
+     * The following  utility method "analyzeTone" and its code was obtained
+     * from https://github.com/ibmtjbot/tjbot/blob/master/recipes/
+     * sentiment_analysis/sentiment.js on 2/5/19. Minor function name change
+     * from "shineForEmotion" to "shineLedEmo". Detailed citation shown below:
+     */
 
     /**************************************************
     * Source Code Title: sentiment.js
@@ -125,7 +129,11 @@ function speechToText(text) {
 
 tj.listen(speechToText);
 
-    /* The following  function and its code was obtained from // https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js on 2/5/19. Minor function name change from "shineForEmotion" to "shineLedEmo". Detailed citation shown below:
+    /**
+     * The following  function and its code was obtained from
+     * https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis
+     * /sentiment.js on 2/5/19. Minor function name change from
+     * "shineForEmotion" to "shineLedEmo". Detailed citation shown below:
     */
 
     /**************************************************
