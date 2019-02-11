@@ -1,0 +1,6 @@
+TJBot: A Caring, Emotionally Intelligent Robot
+Copyright 2019 Veronica Medrano
+
+This product includes TJBot v1.5 software developed at
+IBM (https://github.com/ibmtjbot/tjbot)
+Licensed under Apache License 2.0
