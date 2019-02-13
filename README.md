@@ -90,6 +90,10 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * Continue Step 2
   * Test, debug, refine
 
+  * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Configured speaker via usb adaptor and successfully tested conversation with TJ
+
 * ## **Week 2/11/19**
   * Finish up Step 2
   * Begin Step 3 from proposal 
