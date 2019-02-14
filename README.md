@@ -96,7 +96,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * TODO: Step 2 from proposal (Negative tone test). Program in some of my personal favorite things (such as favorite songs, jokes, quotes,movie quotes), and incorporate that the Watson services (Speech to Text, Tone Analyzer, Text to Speech, Watson Assistant). 
 
 * ## **Week 2/11/19**
-  * Finish up Step 2
+  * Finish up Step 2 (**see above TODO for week 2/4/19, may need to adjust the dates**)
   * Begin Step 3 from proposal 
     * User initiates positive tone
     * Program robot to respond
