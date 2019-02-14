@@ -93,6 +93,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * ### **Meeting Agenda**:
     * #### What was accomplished? 
       * Configured speaker via usb adaptor and successfully tested conversation with TJ
+      * TODO: Step 2 from proposal (Negative tone test). Program in some of my personal favorite things (such as favorite songs, jokes, quotes,movie quotes), and incorporate that the Watson services (Speech to Text, Tone Analyzer, Text to Speech, Watson Assistant). 
 
 * ## **Week 2/11/19**
   * Finish up Step 2
