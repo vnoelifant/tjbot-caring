@@ -110,8 +110,8 @@ This is a project to build/program a simple, caring emotionally intelligent robo
         * Can test dialogue in Watson Assistant's Try it Out panel
       
       * ### Outline of dialogue I plan to code this week:
-        * **Intent**: #receive-support
-          * **User examples**: "I feel so horrible, I am so sad, I had an awful day" 
+        * #### **Intent**: #receive-support
+          * #### **User examples**: "I feel so horrible, I am so sad, I had an awful day" 
           * #### **Example dialogue 1**: (simplest conversation to test first)
             *  **Parent Node 1**: 
               * If $emotion == 'sadness': // trigger is context variable from tj.analyzeTone(text) method in tjbot libary
