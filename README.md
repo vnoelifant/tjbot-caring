@@ -97,6 +97,45 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 * ## **Week 2/11/19**
   * Finish up Step 2 (**see above TODO for week 2/4/19, may need to adjust the dates**)
+    * #### Accomplishments-2/18/19
+      * Read through Watson Assistant Tutorial. Key components to create dialogue is outlined below:
+        *  Create skill: a container for all of the artifacts that define a conversation flow.
+        *  Create intent: define's user's goal or purpose
+        *  Add entities: Watson’s way of handling significant parts of input used to alter way it responds to intent
+        *  Create dialogue: uses intents and entities plus context from app to interact with user and provide a response
+            -  Add nodes in Watson Assistant
+                +  Nodes contain triggers and responses
+                    *  Triggers are conditions and if the iser input matches a certain condition, the response from TJ is executed 
+                    *  Trigger can be a context variable.  This is used if the context variable expression that you specify is true. Use the syntax, $variable_name:value or $variable_name == 'value'. This data exists in the .js code and passed to Assistant service. 
+        * Can test dialogue in Watson Assistant's Try it Out panel
+      
+      * Outline of dialogue I plan to code this week:
+        * Intent: #receive-support
+          * User examples: "I feel so horrible, I am so sad, I had an awful day" 
+          * Example dialogue 1: (simplest conversation to test first)
+            *  **Parent Node 1**: 
+              * If $emotion == 'sadness': // trigger is context variable from tj.analyzeTone(text) method in tjbot libary
+                * Then: TJ can give any of these responses at random:
+                  * "Oh no. It’ll all be better. Trust me. Read your favorite book, watch something silly, and tomorrow is another day!"
+                  * "I am so sorry, let me tell you one of your favorite jokes. <add text here>
+                  * "I am so sorry, <add favorite movie quote text here>"
+          
+          * Example dialogue 2: (more complex, but more ideal)
+         
+          * **Parent Node 1**: 
+            * If $emotion == 'sadness': // trigger is context variable
+              * Then: TJ asks, "why are you sad?" // response
+                * **Child Node 1**: 
+                  * If @situation:break-up: // if reason is break-up 
+                    *  Then: Tj responds: "I am so sorry, this too shall pass, and just try to enjoy the little things!"
+
+      * Read through key node.js functions I'll be using 
+      
+      * **TODO**-2/18/19:
+        * Test out dialogue outlined above
+        * Integrate dialogue to added code incorporated all Watson services
+        * Test code with Watson Assistant 
+                        
   * Begin Step 3 from proposal 
     * User initiates positive tone
     * Program robot to respond
