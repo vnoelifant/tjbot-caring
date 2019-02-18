@@ -109,10 +109,10 @@ This is a project to build/program a simple, caring emotionally intelligent robo
                     *  Trigger can be a context variable.  This is used if the context variable expression that you specify is true. Use the syntax, $variable_name:value or $variable_name == 'value'. This data exists in the .js code and passed to Assistant service. 
         * Can test dialogue in Watson Assistant's Try it Out panel
       
-      * Outline of dialogue I plan to code this week:
-        * Intent: #receive-support
-          * User examples: "I feel so horrible, I am so sad, I had an awful day" 
-          * ### **Example dialogue 1**: (simplest conversation to test first)
+      * ### Outline of dialogue I plan to code this week:
+        * **Intent**: #receive-support
+          * **User examples**: "I feel so horrible, I am so sad, I had an awful day" 
+          * #### **Example dialogue 1**: (simplest conversation to test first)
             *  **Parent Node 1**: 
               * If $emotion == 'sadness': // trigger is context variable from tj.analyzeTone(text) method in tjbot libary
                 * Then: TJ can give any of these responses at random:
@@ -120,7 +120,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
                   * "I am so sorry, let me tell you one of your favorite jokes. <add text here>
                   * "I am so sorry, <add favorite movie quote text here>"
           
-          * ### **Example dialogue 2**: (more complex, but more ideal)
+          * #### **Example dialogue 2**: (more complex, but more ideal)
          
             * **Parent Node 1**: 
               * If $emotion == 'sadness': // trigger is context variable
