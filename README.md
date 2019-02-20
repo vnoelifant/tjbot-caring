@@ -117,8 +117,8 @@ This is a project to build/program a simple, caring emotionally intelligent robo
               * If $emotion == 'sadness': // trigger is context variable from tj.analyzeTone(text) method in tjbot libary
                 * Then: TJ can give any of these responses at random:
                   * "Oh no. It’ll all be better. Trust me. Read your favorite book, watch something silly, and tomorrow is another day!"
-                  * "I am so sorry, let me tell you one of your favorite jokes. <add text here>
-                  * "I am so sorry, <add favorite movie quote text here>"
+                  *  Mar Har! (silly phrase from Amanda Show)
+                  * Despite knowing the journey and where it leads, I embrace it and welcome every moment. (Arrival movie quote)
           
           * #### **Example dialogue 2**: (more complex, but more ideal)
          
@@ -128,6 +128,9 @@ This is a project to build/program a simple, caring emotionally intelligent robo
                   * **Child Node 1**: 
                     * If @situation:break-up: // if reason is break-up 
                       *  Then: Tj responds: "I am so sorry, things will be better, I promise you!"
+                  * **Child Node 2**: 
+                    * If @situation:job-loss: // if reason is a job-loss
+                      *  Then: Tj responds: "Oh no! I'm so sorry. I know you are a smart and capable of anything. It'll all work out in the end!"
 
       * Read through key node.js functions I'll be using 
       
