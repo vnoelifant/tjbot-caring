@@ -138,6 +138,11 @@ This is a project to build/program a simple, caring emotionally intelligent robo
         * Test out dialogue outlined above
         * Integrate dialogue to added code incorporated all Watson services
         * Test code with Watson Assistant 
+      
+      * **2/19/19**
+        * Created very basic first dialogue flow as shown below:
+        ![](screenshots/dialogue_test_1.png)
+        * Began to add in the node.js code to interface with Watson services (IN WORK)
                         
   * Begin Step 3 from proposal 
     * User initiates positive tone
