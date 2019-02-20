@@ -1,0 +1,93 @@
+{
+  "name": "tjbot-caring",
+  "intents": [
+    {
+      "intent": "receive-support",
+      "examples": [
+        {
+          "text": "I feel so horrible"
+        },
+        {
+          "text": "I am so sad"
+        },
+        {
+          "text": "I had an awful day"
+        }
+      ],
+      "description": "User is in a negative mood and in need of support"
+    }
+  ],
+  "entities": [],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_1_1550644609790"
+    },
+    {
+      "type": "standard",
+      "title": "Give support",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Oh no. It’ll all be better. Trust me. Read your favorite book, watch something silly, and tomorrow is another day!"
+              },
+              {
+                "text": "Mar Har!"
+              },
+              {
+                "text": "Despite knowing the journey and where it leads, I embrace it and welcome every moment."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "$emotion ==  'sadness'",
+      "dialog_node": "node_1_1550644609790"
+    }
+  ],
+  "workspace_id": "a4395b70-cee4-46be-a1bd-f2ce57e1f5af",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
