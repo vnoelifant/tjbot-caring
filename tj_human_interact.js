@@ -61,15 +61,15 @@ var config = require('./config');
 // obtain credentials from config.js
 var credentials = config.credentials;
 
-// set up hardware
-var hardware = ['led','microphone'];
 
-// set up TJBot's configuration
-var tjConfig = {
-    log: {
-        level: 'verbose'
-    }
-};
+// obtain user-specific config
+var WORKSPACEID = config.workspaceId;
+
+// these are the hardware capabilities that TJ needs
+var hardware = ['microphone', 'speaker', 'led'];
+
+// obtain TJBot's configuration from config.js
+var tjConfig = config.tjConfig;
 
 // instantiate TJBot
 var tj = new TJBot(hardware, tjConfig, credentials);
@@ -165,3 +165,22 @@ function shineLedEmo(emotion) {
         break;
     }
 }
+
+
+// create context variables from tone analyzer for Watson Assistant
+var context = {};
+context.emotion = emotion;
+
+// test Watson dialogue
+tj.converse(WORKSPACEID, text, function(response) {
+    input: {'text': text}, context: context;
+    function(err, response) {
+      if (err) {
+        console.log('error', err);
+      }
+      else {
+        console.log('David says:', response.output.text.join(' '))
+      }
+    }
+});
+
