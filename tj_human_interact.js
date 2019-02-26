@@ -82,27 +82,28 @@ var tj = new TJBot(hardware, tjConfig, credentials);
 /******************************************************************************
 * Create Watson Services
 *******************************************************************************/
+// Supplying the IAM API key
 // in the constructor, letting the SDK manage the IAM token
 const speech_to_text = new watson.SpeechToTextV1({
-  iam_apikey: '<iam_api_key>',
-  url: '<url>',
+  iam_apikey: credentials.speech_to_text.apikey,
+  url: credentials.speech_to_text.url,
 });
 
 const tone_analyzer = new watson.ToneAnalyzertV3({
-  iam_apikey: '<iam_api_key>',
-  url: '<url>',
+  iam_apikey: credentials.tone_analyzer.apikey,
+  url: credentials.tone_analyzer.url,
   version: '2017-09-21',
 });
 
 const conversation = new watson.AssistantV2({
-  iam_apikey: '<iam_api_key>',
-  url: '<url>',,
+  iam_apikey: credentials.assistant.apikey,
+  url: credentials.assistant.url,
   version: '2018-11-08',
 });
 
 const text_to_speech = new watson.TextTosSpeechV1({
-  iam_apikey: '<iam_api_key>',
-  url: '<url>',
+  iam_apikey: credentials.text_to_speech.apikey,
+  url: credentials.text_to_speech.url,
 });
 
 // set confidence bound
