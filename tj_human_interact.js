@@ -89,17 +89,15 @@ const speech_to_text = new watson.SpeechToTextV1({
 });
 
 const tone_analyzer = new watson.ToneAnalyzertV3({
-  url: '<service_url>',
-  version: '2017-09-21',
   iam_apikey: '<iam_api_key>',
-  iam_url: '<iam_url>', // optional - the default value is https://iam.bluemix.net/identity/token
+  url: '<url>',
+  version: '2017-09-21',
 });
 
 const conversation = new watson.AssistantV2({
-  url: '<service_url>',
-  version: '2018-09-19',
   iam_apikey: '<iam_api_key>',
-  iam_url: '<iam_url>', // optional - the default value is https://iam.bluemix.net/identity/token
+  url: '<url>',,
+  version: '2018-11-08',
 });
 
 const text_to_speech = new watson.TextTosSpeechV1({
