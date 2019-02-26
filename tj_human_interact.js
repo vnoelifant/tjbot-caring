@@ -55,8 +55,13 @@
 * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
 ***************************************************/
 // import modules
+
+// VM: adding 2/25/19
+const watson = require('watson-developer-cloud');
+
 var TJBot = require('tjbot');
 var config = require('./config');
+
 
 // obtain credentials from config.js
 var credentials = config.credentials;
@@ -166,7 +171,6 @@ function shineLedEmo(emotion) {
     }
 }
 
-
 // create context variables from tone analyzer for Watson Assistant
 var context = {};
 context.emotion = emotion;
@@ -179,7 +183,10 @@ tj.converse(WORKSPACEID, text, function(response) {
         console.log('error', err);
       }
       else {
-        console.log('David says:', response.output.text.join(' '))
+          if (response.intents && response.intents[0]) {
+            var intent = response.intents[0];
+            console.log('David says:', response.output.text)
+          }
       }
     }
 });
