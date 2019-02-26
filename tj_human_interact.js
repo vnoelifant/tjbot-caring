@@ -79,6 +79,34 @@ var tjConfig = config.tjConfig;
 // instantiate TJBot
 var tj = new TJBot(hardware, tjConfig, credentials);
 
+/******************************************************************************
+* Create Watson Services
+*******************************************************************************/
+// in the constructor, letting the SDK manage the IAM token
+const speech_to_text = new watson.SpeechToTextV1({
+  iam_apikey: '<iam_api_key>',
+  url: '<url>',
+});
+
+const tone_analyzer = new watson.ToneAnalyzertV3({
+  url: '<service_url>',
+  version: '2017-09-21',
+  iam_apikey: '<iam_api_key>',
+  iam_url: '<iam_url>', // optional - the default value is https://iam.bluemix.net/identity/token
+});
+
+const conversation = new watson.AssistantV2({
+  url: '<service_url>',
+  version: '2018-09-19',
+  iam_apikey: '<iam_api_key>',
+  iam_url: '<iam_url>', // optional - the default value is https://iam.bluemix.net/identity/token
+});
+
+const text_to_speech = new watson.TextTosSpeechV1({
+  iam_apikey: '<iam_api_key>',
+  url: '<url>',
+});
+
 // set confidence bound
 var CONFIDENCE_THRESHOLD = 0.5;
 
