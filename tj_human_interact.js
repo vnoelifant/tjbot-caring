@@ -79,11 +79,12 @@ var tjConfig = config.tjConfig;
 // instantiate TJBot
 var tj = new TJBot(hardware, tjConfig, credentials);
 
+// may need for later
 // update attention word to name "David"
-const attentionWord = tj.tjConfig.robot.name
+// const attentionWord = tj.tjConfig.robot.name
 
 /******************************************************************************
-* Create Watson Services
+* Create Watson Services (may only need Assistant constructor)
 *******************************************************************************/
 // Supplying the IAM API key
 // in the constructor, letting the SDK manage the IAM token
@@ -102,6 +103,8 @@ const tone_analyzer = new watson.ToneAnalyzertV3({
 
 */
 
+// Supplying the IAM API key for Watson Assistant service
+// in the constructor, letting the SDK manage the IAM token
 const conversation = new watson.AssistantV1({
   iam_apikey: credentials.assistant.apikey,
   version: '2018-20-09',
@@ -114,6 +117,10 @@ const text_to_speech = new watson.TextToSpeechV1({
   url: credentials.text_to_speech.url,
 });
 */
+
+// Testing Robot name
+console.log(tj.tjConfig.robot.name + "wants to know your feelings")
+
 
 // set confidence bound
 var CONFIDENCE_THRESHOLD = 0.5;
@@ -139,6 +146,9 @@ function speechToText(text) {
     * Code version: TJBot v1.5
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
     ***************************************************/
+
+// David listens to what your speech is and translates it to text
+tj.listen(function(text) {
     // analyze text for different emotions
     tj.analyzeTone(text).then(function(tone) {
         // find the tone with the highest confidence
@@ -163,12 +173,11 @@ function speechToText(text) {
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
                 shineLedEmo(maxTone.tone_id);
+                converseDavid(text)
             }
         }
   });
 }
-
-tj.listen(speechToText);
 
     /**
      * The following  function and its code was obtained from
@@ -208,30 +217,36 @@ function shineLedEmo(emotion) {
 }
 
 // CONVERSATION
-// create context variables from tone analyzer for Watson Assistant
-var context = {};
-context.emotion = emotion;
-
 // test Watson dialogue
 function converseDavid(text) {
-    conversation.message({
-      workspace_id: WORKSPACEID,
-      //session_id: '{session_id}',
-      input: {'text': text},
-      context: context
-    }, function(err, response) {
-      if (err)
-        console.log('error:', err);
-      else
-        context = response.context;
-        console.log(JSON.stringify(response, null, 2));
-        console.log('David says: ' + response.object.output.text.join(' '))
-    }
+  console.log('David hears: ', text);
+  if (response.intents && response.intents[0]) {
+    var intent = response.intents[0];
+     if (intent != undefined && intent.intent != undefined) {
+        if intent.intent == "receive-support" {
+          // create context variables from tone analyzer for Watson Assistant
+          var context = {};
+          context.emotion = emotion;
+          conversation.message({
+          workspace_id: WORKSPACEID,
+          input: {'text': text},
+          context: context
+        }, function(err, response) {
+          if (err)
+            console.log('error:', err);
+          else
+            context = response.context;
+            console.log(JSON.stringify(response, null, 2));
+            david_response = response.object.output.text.join(' ')
+            tj.speak(david_response)
+            console.log('David says: ' + david_response)
+          }
+        }
+     }
   }
+}
 
-
-converseDavid(text);
-
+// tj.listen(speechToText);
 
 
 
