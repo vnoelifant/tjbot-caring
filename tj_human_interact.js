@@ -119,7 +119,7 @@ const text_to_speech = new watson.TextToSpeechV1({
 */
 
 // Testing Robot name
-console.log(tj.tjConfig.robot.name + "wants to know your feelings");
+console.log(tjConfig.robot.name + " wants to know your feelings");
 
 
 // set confidence bound
@@ -175,9 +175,9 @@ function speechToText(text) {
 
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
-                //shineLedEmo(maxTone.tone_id);
+                shineLedEmo(maxTone.tone_id);
                 //converseDavid(text);
-               converseDavid();
+                converseDavid();
             }
         }
   });
@@ -201,7 +201,7 @@ tj.listen(speechToText);
     * Code version: TJBot v1.5
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
     ***************************************************/
-/*
+
 // shine LED based on emotion
 function shineLedEmo(emotion) {
     console.log("Current emotion is " + emotion);
@@ -224,7 +224,7 @@ function shineLedEmo(emotion) {
     }
 }
 
-*/
+
 // CONVERSATION
 function converseDavid() {
     // test Watson dialogue
