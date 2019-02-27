@@ -144,7 +144,12 @@ var CONFIDENCE_THRESHOLD = 0.5;
 
 // function to open microphone and streams data to the speech_to_text service
 // David listens to what your speech is and translates it to text
-tj.listen(function(text) {
+// tj.listen(function(text) {
+    // print text to console
+// console.log(text);
+
+// function to open microphone and streams data to the speech_to_text service
+function speechToText(text) {
     // print text to console
     console.log(text);
     // analyze text for different emotions
@@ -170,12 +175,16 @@ tj.listen(function(text) {
 
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
-                // shineLedEmo(maxTone.tone_id);
-                converseDavid(text);
+                //shineLedEmo(maxTone.tone_id);
+                //converseDavid(text);
+               converseDavid();
             }
         }
   });
-});
+}
+
+tj.listen(speechToText);
+
 
     /**
      * The following  function and its code was obtained from
@@ -191,7 +200,6 @@ tj.listen(function(text) {
     * Date: N/A
     * Code version: TJBot v1.5
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
-
     ***************************************************/
 /*
 // shine LED based on emotion
@@ -215,39 +223,41 @@ function shineLedEmo(emotion) {
         break;
     }
 }
-*/
 
+*/
 // CONVERSATION
-// test Watson dialogue
-function converseDavid(text) {
-  console.log('David hears: ', text);
-  if (response.intents && response.intents[0]) {
-    var intent = response.intents[0];
-      if (intent != undefined && intent.intent != undefined) {
-        if intent.intent == "receive-support" {
-          // create context variables from tone analyzer for Watson Assistant
-          var context = {};
-          context.emotion = emotion;
-          conversation.message({
-          workspace_id: WORKSPACEID,
-          input: {'text': text},
-          context: context
-        }, function(err, response) {
-          if (err)
-            console.log('error:', err);
-          else
-            context = response.context;
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.object.output.text.join(' ');
-            tj.speak(david_response);
-            console.log('David says: ' + david_response);
-          }
-        }
-     }
-  }
+function converseDavid() {
+    // test Watson dialogue
+    tj.converse(WORKSPACEID, text, function(response) {
+    // function converseDavid(text) {
+      console.log('David hears: ', text);
+      if (response.intents && response.intents[0]) {
+        var intent = response.intents[0];
+          if (intent != undefined && intent.intent != undefined) {
+            if intent.intent == "receive-support" {
+              // create context variables from tone analyzer for Watson Assistant
+              var context = {};
+              context.emotion = emotion;
+              conversation.message({
+              workspace_id: WORKSPACEID,
+              input: {'text': text},
+              context: context
+            }, function(err, response) {
+              if (err)
+                console.log('error:', err);
+              else
+                context = response.context;
+                console.log(JSON.stringify(response, null, 2));
+                david_response = response.object.output.text.join(' ');
+                tj.speak(david_response);
+                console.log('David says: ' + david_response);
+              }
+            }
+         }
+      }
+    });
 }
 
-// tj.listen(speechToText);
 
 
 
