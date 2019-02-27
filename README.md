@@ -151,6 +151,26 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 * ## **Week 2/18/19**
   * Contine Step 3
   * Test, debug, refine
+  
+  * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Code updates toincorporate dialogue with Watson services
+      * Incorporated API methods from node-sdk, a Node.js client library to use the Watson APIs.
+
+      * TODO: 
+        * Debugging
+
+    * #### What problems were encountered? 
+      * Errors of not recognizing "intent.intent", errors not recognizing "text" input passed from Tone Analyzer to tone assistant. 
+
+    * #### What are the challenges for the coming week?  
+      * Figuring out what the cause of above issues are
+
+  * ### **Meeting Minutes**:
+    * **Comments from Matthew**:
+      * 
+    * **Comments from Team**:
+      * 
 
 * ## **Week 2/25/19**
   * Begin Step 4 from proposal
