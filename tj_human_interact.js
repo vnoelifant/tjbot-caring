@@ -119,7 +119,7 @@ const text_to_speech = new watson.TextToSpeechV1({
 */
 
 // Testing Robot name
-console.log(tj.tjConfig.robot.name + "wants to know your feelings")
+console.log(tj.tjConfig.robot.name + "wants to know your feelings");
 
 
 // set confidence bound
@@ -171,7 +171,7 @@ tj.listen(function(text) {
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
                 shineLedEmo(maxTone.tone_id);
-                converseDavid(text)
+                converseDavid(text);
             }
         }
   });
@@ -235,9 +235,9 @@ function converseDavid(text) {
           else
             context = response.context;
             console.log(JSON.stringify(response, null, 2));
-            david_response = response.object.output.text.join(' ')
-            tj.speak(david_response)
-            console.log('David says: ' + david_response)
+            david_response = response.object.output.text.join(' ');
+            tj.speak(david_response);
+            console.log('David says: ' + david_response);
           }
         }
      }
