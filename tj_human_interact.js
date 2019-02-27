@@ -125,12 +125,6 @@ console.log(tj.tjConfig.robot.name + "wants to know your feelings")
 // set confidence bound
 var CONFIDENCE_THRESHOLD = 0.5;
 
-
-// function to open microphone and streams data to the speech_to_text service
-function speechToText(text) {
-    // print text to console
-    console.log(text);
-
     /**
      * The following  utility method "analyzeTone" and its code was obtained
      * from https://github.com/ibmtjbot/tjbot/blob/master/recipes/
@@ -147,8 +141,12 @@ function speechToText(text) {
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
     ***************************************************/
 
+
+// function to open microphone and streams data to the speech_to_text service
 // David listens to what your speech is and translates it to text
 tj.listen(function(text) {
+    // print text to console
+    console.log(text);
     // analyze text for different emotions
     tj.analyzeTone(text).then(function(tone) {
         // find the tone with the highest confidence
