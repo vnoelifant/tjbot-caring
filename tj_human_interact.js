@@ -79,11 +79,16 @@ var tjConfig = config.tjConfig;
 // instantiate TJBot
 var tj = new TJBot(hardware, tjConfig, credentials);
 
+// update attention word to name "David"
+const attentionWord = tj.tjConfig.robot.name
+
 /******************************************************************************
 * Create Watson Services
 *******************************************************************************/
 // Supplying the IAM API key
 // in the constructor, letting the SDK manage the IAM token
+
+/*
 const speech_to_text = new watson.SpeechToTextV1({
   iam_apikey: credentials.speech_to_text.apikey,
   url: credentials.speech_to_text.url,
@@ -95,16 +100,20 @@ const tone_analyzer = new watson.ToneAnalyzertV3({
   version: '2017-09-21',
 });
 
+*/
+
 const conversation = new watson.AssistantV2({
   iam_apikey: credentials.assistant.apikey,
-  url: credentials.assistant.url,
   version: '2018-11-08',
+  url: credentials.assistant.url,
 });
 
-const text_to_speech = new watson.TextTosSpeechV1({
+/*
+const text_to_speech = new watson.TextToSpeechV1({
   iam_apikey: credentials.text_to_speech.apikey,
   url: credentials.text_to_speech.url,
 });
+*/
 
 // set confidence bound
 var CONFIDENCE_THRESHOLD = 0.5;
@@ -198,23 +207,38 @@ function shineLedEmo(emotion) {
     }
 }
 
+// CONVERSATION
 // create context variables from tone analyzer for Watson Assistant
 var context = {};
 context.emotion = emotion;
 
 // test Watson dialogue
-tj.converse(WORKSPACEID, text, function(response) {
-    input: {'text': text}, context: context;
-    function(err, response) {
-      if (err) {
-        console.log('error', err);
-      }
-      else {
-          if (response.intents && response.intents[0]) {
-            var intent = response.intents[0];
-            console.log('David says:', response.output.text)
-          }
-      }
+function converseDavid(text) {
+    conversation.message({
+      assistant_id: WORKSPACEID,
+      //session_id: '{session_id}',
+      input: {
+        'message_type': 'text',
+        'text': text,
+        'options': {
+          'return_context': true
+         }
+      },
+      context: context
+    }, function(err, response) {
+      if (err)
+        console.log('error:', err);
+      else
+        console.log(JSON.stringify(response, null, 2));
+        console.log('David says: ' + response.object.output.text.join(' '))
     }
-});
+  }
+
+
+converseDavid(text);
+
+
+
+
+
 
