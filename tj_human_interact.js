@@ -252,7 +252,7 @@ function converseDavid() {
                 tj.speak(david_response);
                 console.log('David says: ' + david_response);
               });
-            }
+            });
          }
 
 
