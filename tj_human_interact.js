@@ -231,10 +231,10 @@ function shineLedEmo(emotion) {
     // tj.converse(WORKSPACEID, text, function(response) {
     function converseDavid(text) {
       console.log('David hears: ', text);
-      if (response.intents && response.intents[0]) {
-        var intent = response.intents[0];
-          if (intent != undefined && intent.intent != undefined) {
-             if intent.intent == "receive-support" {
+      //if (response.intents && response.intents[0]) {
+        //var intent = response.intents[0];
+          //if (intent != undefined && intent.intent != undefined) {
+             if intents.intent == "receive-support" {
               // create context variables from tone analyzer for Watson Assistant
               var context = {};
               context.emotion = emotion;
