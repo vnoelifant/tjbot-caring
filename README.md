@@ -151,13 +151,6 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 * ## **Week 2/18/19**
   * Contine Step 3
   * Test, debug, refine
-
-* ## **Week 2/25/19**
-  * Begin Step 4 from proposal
-  * Robot detects quiet environment
-  * Program robot to initiate dialogue
-  * This is one of the big sretch goals, so if there are issues, or it is too timily to implement, go back and optimize existing functionalities (for instance, explore the facial recognition and Twitter API capabilities)
-
   
   * ### **Meeting Agenda**:
     * #### What was accomplished? 
@@ -178,6 +171,12 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * 
     * **Comments from Team**:
       * 
+
+* ## **Week 2/25/19**
+  * Begin Step 4 from proposal
+  * Robot detects quiet environment
+  * Program robot to initiate dialogue
+  * This is one of the big sretch goals, so if there are issues, or it is too timily to implement, go back and optimize existing functionalities (for instance, explore the facial recognition and Twitter API capabilities)
 
 * ## **Week 3/4/19**
   * Continue Step 4
