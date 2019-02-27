@@ -102,9 +102,9 @@ const tone_analyzer = new watson.ToneAnalyzertV3({
 
 */
 
-const conversation = new watson.AssistantV2({
+const conversation = new watson.AssistantV1({
   iam_apikey: credentials.assistant.apikey,
-  version: '2018-11-08',
+  version: '2018-20-09',
   url: credentials.assistant.url,
 });
 
@@ -215,20 +215,15 @@ context.emotion = emotion;
 // test Watson dialogue
 function converseDavid(text) {
     conversation.message({
-      assistant_id: WORKSPACEID,
+      workspace_id: WORKSPACEID,
       //session_id: '{session_id}',
-      input: {
-        'message_type': 'text',
-        'text': text,
-        'options': {
-          'return_context': true
-         }
-      },
+      input: {'text': text},
       context: context
     }, function(err, response) {
       if (err)
         console.log('error:', err);
       else
+        context = response.context;
         console.log(JSON.stringify(response, null, 2));
         console.log('David says: ' + response.object.output.text.join(' '))
     }
