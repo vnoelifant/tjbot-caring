@@ -170,7 +170,7 @@ tj.listen(function(text) {
 
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
-                shineLedEmo(maxTone.tone_id);
+                // shineLedEmo(maxTone.tone_id);
                 converseDavid(text);
             }
         }
@@ -191,7 +191,9 @@ tj.listen(function(text) {
     * Date: N/A
     * Code version: TJBot v1.5
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
+
     ***************************************************/
+/*
 // shine LED based on emotion
 function shineLedEmo(emotion) {
     console.log("Current emotion is " + emotion);
@@ -213,15 +215,14 @@ function shineLedEmo(emotion) {
         break;
     }
 }
+*/
 
 // CONVERSATION
 // test Watson dialogue
 function converseDavid(text) {
   console.log('David hears: ', text);
- // if (response.intents && response.intents[0]) {
-  //  var intent = response.intents[0];
-  if (response.object.intents != undefined) {
-    var intent = response.object.intents[0];
+  if (response.intents && response.intents[0]) {
+    var intent = response.intents[0];
       if (intent != undefined && intent.intent != undefined) {
         if intent.intent == "receive-support" {
           // create context variables from tone analyzer for Watson Assistant
