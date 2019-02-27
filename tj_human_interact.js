@@ -251,12 +251,12 @@ function converseDavid() {
                 david_response = response.object.output.text.join(' ');
                 tj.speak(david_response);
                 console.log('David says: ' + david_response);
-              }
+              });
             }
          }
-      }
-    });
-}
+
+
+
 
 
 
