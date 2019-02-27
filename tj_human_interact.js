@@ -176,8 +176,8 @@ function speechToText(text) {
             // verify confidence
             if (maxTone.score >= CONFIDENCE_THRESHOLD) {
                 shineLedEmo(maxTone.tone_id);
-                //converseDavid(text);
-                converseDavid();
+                converseDavid(text);
+                //converseDavid();
             }
         }
   });
@@ -226,15 +226,15 @@ function shineLedEmo(emotion) {
 
 
 // CONVERSATION
-function converseDavid() {
+// function converseDavid() {
     // test Watson dialogue
-    tj.converse(WORKSPACEID, text, function(response) {
-    // function converseDavid(text) {
+    // tj.converse(WORKSPACEID, text, function(response) {
+    function converseDavid(text) {
       console.log('David hears: ', text);
-      //if (response.intents && response.intents[0]) {
-        //var intent = response.intents[0];
-         // if (intent != undefined && intent.intent != undefined) {
-            //if intent.intent == "receive-support" {
+      if (response.intents && response.intents[0]) {
+        var intent = response.intents[0];
+          if (intent != undefined && intent.intent != undefined) {
+             if intent.intent == "receive-support" {
               // create context variables from tone analyzer for Watson Assistant
               var context = {};
               context.emotion = emotion;
@@ -252,8 +252,8 @@ function converseDavid() {
                 tj.speak(david_response);
                 console.log('David says: ' + david_response);
               });
-            });
-         }
+            }
+
 
 
 
