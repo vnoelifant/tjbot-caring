@@ -218,9 +218,11 @@ function shineLedEmo(emotion) {
 // test Watson dialogue
 function converseDavid(text) {
   console.log('David hears: ', text);
-  if (response.intents && response.intents[0]) {
-    var intent = response.intents[0];
-     if (intent != undefined && intent.intent != undefined) {
+ // if (response.intents && response.intents[0]) {
+  //  var intent = response.intents[0];
+  if (response.object.intents != undefined) {
+    var intent = response.object.intents[0];
+      if (intent != undefined && intent.intent != undefined) {
         if intent.intent == "receive-support" {
           // create context variables from tone analyzer for Watson Assistant
           var context = {};
