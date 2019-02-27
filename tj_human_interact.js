@@ -175,7 +175,7 @@ tj.listen(function(text) {
             }
         }
   });
-}
+});
 
     /**
      * The following  function and its code was obtained from
