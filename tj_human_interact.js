@@ -154,7 +154,7 @@ var CONFIDENCE_THRESHOLD = 0.5;
   // console.log(text);
 const getEmotion = (text) => {
   return new Promise((resolve) => {
-
+    let emotion = null;
     // analyze text for different emotions
     tj.analyzeTone(text).then(function(tone) {
     // find the tone with the highest confidence
