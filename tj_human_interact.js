@@ -179,6 +179,8 @@ const getEmotion = (text) => {
       // verify confidence
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
+          console.log("Current emotion is " + emotion);
+
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
