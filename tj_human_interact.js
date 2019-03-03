@@ -242,7 +242,7 @@ function shineLedEmo(emotion) {
 // Replace with the context obtained from request
 var context = {};
 // call back function for speech_to_text service
-function getEmotion(text) {
+function speechToText(text) {
   console.log('David hears: ', text);
   //if (response.intents && response.intents[0]) {
     //var intent = response.intents[0];
@@ -276,7 +276,7 @@ function getEmotion(text) {
 
 // Opens the microphone and streams data to the speech_to_text service
 // callback function getEmotion is called with speech utterances as they are produced
-tj.listen(getEmotion);
+tj.listen(speechToText);
 
 
 
