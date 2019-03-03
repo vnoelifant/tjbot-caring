@@ -119,7 +119,7 @@ const text_to_speech = new watson.TextToSpeechV1({
 */
 
 // Testing Robot name
-console.log(tjConfig.robot.name + "," "wants to know your feelings");
+console.log(tjConfig.robot.name, "wants to know your feelings");
 
 
 // set confidence bound
