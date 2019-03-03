@@ -119,7 +119,7 @@ const text_to_speech = new watson.TextToSpeechV1({
 */
 
 // Testing Robot name
-console.log(tjConfig.robot.name + "wants to know your feelings");
+console.log(tjConfig.robot.name + "," "wants to know your feelings");
 
 
 // set confidence bound
@@ -150,36 +150,42 @@ var CONFIDENCE_THRESHOLD = 0.5;
 
 // function to open microphone and streams data to the speech_to_text service
 function speechToText(text) {
-    // print text to console
-    console.log(text);
+  // print text to console
+  console.log(text);
+
+  return new Promise((resolve) => {
+
     // analyze text for different emotions
     tj.analyzeTone(text).then(function(tone) {
-        // find the tone with the highest confidence
-        // only consider the emotional tones (anger, fear, joy, sadness)
-        // each tone looks like this:
-        // {
-        //   "score": 0.6165,
-        //   "tone_id": "sadness",
-        //   "tone_name": "Sadness"
-        // }
+    // find the tone with the highest confidence
+    // only consider the emotional tones (anger, fear, joy, sadness)
+    // each tone looks like this:
+    // {
+    //   "score": 0.6165,
+    //   "tone_id": "sadness",
+    //   "tone_name": "Sadness"
+    // }
 
-        var emotionalTones = tone.document_tone.tones.filter(function(t) {
-            return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness';
+      var emotionalTones = tone.document_tone.tones.filter(function(t) {
+        return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness';
+      });
+
+      //extract most prevalent tone
+      if (emotionalTones.length > 0) {
+        var maxTone = emotionalTones.reduce(function(a, b) {
+              return (a.score > b.score) ? a : b;
         });
 
-        //extract most prevalent tone
-        if (emotionalTones.length > 0) {
-            var maxTone = emotionalTones.reduce(function(a, b) {
-                return (a.score > b.score) ? a : b;
-            });
-
-            // verify confidence
-            if (maxTone.score >= CONFIDENCE_THRESHOLD) {
-                shineLedEmo(maxTone.tone_id);
-                converseDavid(text);
-                //converseDavid();
-            }
+      // verify confidence
+        if (maxTone.score >= CONFIDENCE_THRESHOLD) {
+          emotion = maxTone.tone_id
+          shineLedEmo(emotion);
+          converseDavid(text);
+          //converseDavid();
         }
+      }
+    });
+      resolve(emotion)
   });
 }
 
@@ -204,55 +210,55 @@ tj.listen(speechToText);
 
 // shine LED based on emotion
 function shineLedEmo(emotion) {
-    console.log("Current emotion is " + emotion);
+  console.log("Current emotion is " + emotion);
 
-    switch (emotion) {
-    case 'anger':
-        tj.shine('red');
-        break;
-    case 'fear':
-        tj.shine('magenta');
-        break;
-    case 'joy':
-        tj.shine('yellow');
-        break;
-    case 'sadness':
-        tj.shine('blue');
-        break;
-    default:
-        break;
-    }
+  switch (emotion) {
+  case 'anger':
+    tj.shine('red');
+    break;
+  case 'fear':
+    tj.shine('magenta');
+    break;
+  case 'joy':
+    tj.shine('yellow');
+    break;
+  case 'sadness':
+    tj.shine('blue');
+    break;
+  default:
+     break;
+  }
 }
 
 
 // CONVERSATION
 // function converseDavid() {
-    // test Watson dialogue
-    // tj.converse(WORKSPACEID, text, function(response) {
-    function converseDavid(text) {
-      console.log('David hears: ', text);
-      //if (response.intents && response.intents[0]) {
-        //var intent = response.intents[0];
-          //if (intent != undefined && intent.intent != undefined) {
-             if intents.intent == "receive-support" {
-              // create context variables from tone analyzer for Watson Assistant
-              var context = {};
-              context.emotion = emotion;
-              conversation.message({
-              workspace_id: WORKSPACEID,
-              input: {'text': text},
-              context: context
-            }, function(err, response) {
-              if (err)
-                console.log('error:', err);
-              else
-                context = response.context;
-                console.log(JSON.stringify(response, null, 2));
-                david_response = response.object.output.text.join(' ');
-                tj.speak(david_response);
-                console.log('David says: ' + david_response);
-              });
-            }
+// test Watson dialogue
+// tj.converse(WORKSPACEID, text, function(response) {
+function converseDavid(text) {
+  console.log('David hears: ', text);
+  //if (response.intents && response.intents[0]) {
+    //var intent = response.intents[0];
+      //if (intent != undefined && intent.intent != undefined) {
+         if intents.intent == "receive-support" {
+          // create context variables from tone analyzer for Watson Assistant
+          var context = {};
+          context.emotion = emotion;
+          conversation.message({
+          workspace_id: WORKSPACEID,
+          input: {'text': text},
+          context: context
+        }, function(err, response) {
+          if (err)
+            console.log('error:', err);
+          else
+            context = response.context;
+            console.log(JSON.stringify(response, null, 2));
+            david_response = response.object.output.text.join(' ');
+            tj.speak(david_response);
+            console.log('David says: ' + david_response);
+          });
+        }
 
 
 
