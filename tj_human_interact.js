@@ -185,7 +185,7 @@ const getEmotion = (text) => {
         }
       }
     });
-      resolve(emotion)
+      resolve(emotion);
   });
 }
 
