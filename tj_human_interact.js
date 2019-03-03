@@ -272,7 +272,7 @@ function getEmotion(text) {
       }
     }
   });
-}
+});
 
 // Opens the microphone and streams data to the speech_to_text service
 // callback function getEmotion is called with speech utterances as they are produced
