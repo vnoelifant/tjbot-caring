@@ -149,10 +149,10 @@ var CONFIDENCE_THRESHOLD = 0.5;
 // console.log(text);
 
 // function to open microphone and streams data to the speech_to_text service
-function speechToText(text) {
+// function speechToText(text) {
   // print text to console
-  console.log(text);
-
+  // console.log(text);
+const getEmotion = (text) => {
   return new Promise((resolve) => {
 
     // analyze text for different emotions
@@ -179,8 +179,8 @@ function speechToText(text) {
       // verify confidence
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id
-          shineLedEmo(emotion);
-          converseDavid(text);
+          //shineLedEmo(emotion);
+          //converseDavid(text);
           //converseDavid();
         }
       }
@@ -189,7 +189,7 @@ function speechToText(text) {
   });
 }
 
-tj.listen(speechToText);
+
 
 
     /**
@@ -208,6 +208,7 @@ tj.listen(speechToText);
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
     ***************************************************/
 
+/*
 // shine LED based on emotion
 function shineLedEmo(emotion) {
   console.log("Current emotion is " + emotion);
@@ -230,37 +231,52 @@ function shineLedEmo(emotion) {
   }
 }
 
+*/
 
 // CONVERSATION
 // function converseDavid() {
 // test Watson dialogue
 // tj.converse(WORKSPACEID, text, function(response) {
-function converseDavid(text) {
+
+
+// Replace with the context obtained from request
+var context = {};
+// call back function for speech_to_text service
+function getEmotion(text) {
   console.log('David hears: ', text);
   //if (response.intents && response.intents[0]) {
     //var intent = response.intents[0];
       //if (intent != undefined && intent.intent != undefined) {
-         if intents.intent == "receive-support" {
+        // if intents.intent == "receive-support" {
           // create context variables from tone analyzer for Watson Assistant
-          var context = {};
-          context.emotion = emotion;
-          conversation.message({
-          workspace_id: WORKSPACEID,
-          input: {'text': text},
-          context: context
-        }, function(err, response) {
-          if (err)
-            console.log('error:', err);
-          else
-            context = response.context;
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.object.output.text.join(' ');
-            tj.speak(david_response);
-            console.log('David says: ' + david_response);
-          });
-        }
+    //var context = {};
+    getEmotion(text).then((detectedEmotion) => {
+      context.emotion = detectedEmotion.emotion;
+      //context.emotion = emotion;
+      conversation.message({
+      workspace_id: WORKSPACEID,
+      input: {'text': text},
+      context: context
+    }, function(err, response) {
+    if (err) {
+      console.log('error:', err);
+    }
+    else {
 
+      if(response.intents.length > 0 && response.intents[0].intent === "receive-support"){
+        context = response.context;
+        //console.log(JSON.stringify(response, null, 2));
+        david_response = response.object.text[0]
+        tj.speak(david_response);
+        console.log('David says: ' + david_response);
+      }
+    }
+  });
+}
 
+// Opens the microphone and streams data to the speech_to_text service
+// callback function getEmotion is called with speech utterances as they are produced
+tj.listen(getEmotion);
 
 
 
