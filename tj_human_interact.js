@@ -250,29 +250,33 @@ function speechToText(text) {
         // if intents.intent == "receive-support" {
           // create context variables from tone analyzer for Watson Assistant
     //var context = {};
-    getEmotion(text).then((detectedEmotion) => {
-      context.emotion = detectedEmotion.emotion;
-      //context.emotion = emotion;
-      conversation.message({
-      workspace_id: WORKSPACEID,
-      input: {'text': text},
-      context: context
-    }, function(err, response) {
-    if (err) {
-      console.log('error:', err);
-    }
-    else {
+  getEmotion(text).then((detectedEmotion) => {
+    context.emotion = detectedEmotion.emotion;
+    //context.emotion = emotion;
+    conversation.message({
+    workspace_id: WORKSPACEID,
+    input: {'text': text},
+    context: context
+  }, function(err, response) {
+  if (err) {
+    console.log('error:', err);
+  }
+  else {
 
-      if(response.intents.length > 0 && response.intents[0].intent === "receive-support"){
-        context = response.context;
-        //console.log(JSON.stringify(response, null, 2));
-        david_response = response.object.text[0]
-        tj.speak(david_response);
-        console.log('David says: ' + david_response);
-      }
+    if(response.intents.length > 0 && response.intents[0].intent === "receive-support"){
+      context = response.context;
+      //console.log(JSON.stringify(response, null, 2));
+      david_response = response.object.text[0]
+      tj.speak(david_response);
+      console.log('David says: ' + david_response);
     }
-  });
+  }
+
 });
+
+});
+
+}
 
 // Opens the microphone and streams data to the speech_to_text service
 // callback function getEmotion is called with speech utterances as they are produced
