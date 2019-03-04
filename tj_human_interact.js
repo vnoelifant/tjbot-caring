@@ -265,6 +265,7 @@ function speechToText(text) {
         input: {'text': text},
         context: context
       },
+
       function(err, response) {
         if (err) {
           console.log('error:', err);
@@ -273,6 +274,7 @@ function speechToText(text) {
 
           if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
             context = response.context;
+            console.log(context);
             //console.log(JSON.stringify(response, null, 2));
             david_response = response.object.text[0];
             tj.speak(david_response);
