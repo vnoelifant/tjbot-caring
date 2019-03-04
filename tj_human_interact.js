@@ -279,7 +279,7 @@ function speechToText(text) {
             console.log('David says: ' + david_response);
           }
         }
-      }
+      });
     });
   });
 }
