@@ -238,12 +238,14 @@ function shineLedEmo(emotion) {
 // CONVERSATION
 // function converseDavid() {
 // test Watson dialogue
-// tj.converse(WORKSPACEID, text, function(response) {
+//
+
 
 
 // Replace with the context obtained from request
 var context = {};
 // call back function for speech_to_text service
+
 function speechToText(text) {
   console.log('David hears: ', text);
   //if (response.intents && response.intents[0]) {
@@ -255,29 +257,31 @@ function speechToText(text) {
   getEmotion(text).then((detectedEmotion) => {
     context.emotion = detectedEmotion.emotion;
     //context.emotion = emotion;
-    conversation.message({
-    workspace_id: WORKSPACEID,
-    input: {'text': text},
-    context: context
-  }, function(err, response) {
-  if (err) {
-    console.log('error:', err);
-  }
-  else {
 
-    if(response.intents.length > 0 && response.intents[0].intent === "receive-support"){
-      context = response.context;
-      //console.log(JSON.stringify(response, null, 2));
-      david_response = response.object.text[0];
-      tj.speak(david_response);
-      console.log('David says: ' + david_response);
-    }
-  }
+    tj.converse(WORKSPACEID, text, function(response) {
+      conversation.message(
+      {
+        workspace_id: WORKSPACEID,
+        input: {'text': text},
+        context: context
+      },
+      function(err, response) {
+        if (err) {
+          console.log('error:', err);
+        }
+        else {
 
-});
-
-});
-
+          if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+            context = response.context;
+            //console.log(JSON.stringify(response, null, 2));
+            david_response = response.object.text[0];
+            tj.speak(david_response);
+            console.log('David says: ' + david_response);
+          }
+        }
+      }
+    });
+  });
 }
 
 // Opens the microphone and streams data to the speech_to_text service
