@@ -259,6 +259,7 @@ function speechToText(text) {
     //context.emotion = emotion;
 
     tj.converse(WORKSPACEID, text, function(response) {
+      console.log(response.intents[0].intent)
       conversation.message(
       {
         workspace_id: WORKSPACEID,
