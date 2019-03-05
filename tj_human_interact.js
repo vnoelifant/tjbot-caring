@@ -182,11 +182,11 @@ const getEmotion = (text) => {
           emotion = maxTone.tone_id;
           maxScore = maxTone.score
           console.log("Current emotion is " + emotion);
-          resolve(emotion)
+          //resolve(emotion)
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
-          //resolve({emotion, maxScore});
+          resolve({emotion, maxScore});
         }
       }
     });
