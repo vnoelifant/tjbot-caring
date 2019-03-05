@@ -155,6 +155,7 @@ var CONFIDENCE_THRESHOLD = 0.5;
 const getEmotion = (text) => {
   return new Promise((resolve) => {
     let emotion = '';
+    let maxScore = 0;
     // analyze text for different emotions
     tj.analyzeTone(text).then(function(tone) {
     // find the tone with the highest confidence
@@ -179,6 +180,7 @@ const getEmotion = (text) => {
       // verify confidence
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
+          maxScore = maxTone.score
           console.log("Current emotion is " + emotion);
           //resolve(emotion)
           //shineLedEmo(emotion);
@@ -187,7 +189,7 @@ const getEmotion = (text) => {
         }
       }
     });
-      resolve({emotion, maxTone.score});
+      resolve({emotion, maxScore});
   });
 }
 
