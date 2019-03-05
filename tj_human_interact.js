@@ -247,13 +247,15 @@ function shineLedEmo(emotion) {
 // call back function for speech_to_text service
 
 function speechToText(text) {
-  console.log('David hears: ', text);
+  console.log(tjConfig.robot.name,'hears', text);
   //if (response.intents && response.intents[0]) {
     //var intent = response.intents[0];
       //if (intent != undefined && intent.intent != undefined) {
         // if intents.intent == "receive-support" {
           // create context variables from tone analyzer for Watson Assistant
     //var context = {};
+
+
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
@@ -273,11 +275,11 @@ function speechToText(text) {
         console.log('error:', err);
       }
       else {
-
+        console.log(JSON.stringify(response, null, 2));
         //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
         context = response.context;
-        console.log(context);
-        //console.log(JSON.stringify(response, null, 2));
+        //console.log(context);
+
         david_response = response.output.text[0];
         tj.speak(david_response);
         console.log('David says: ' + david_response);
