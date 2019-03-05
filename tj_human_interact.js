@@ -180,14 +180,14 @@ const getEmotion = (text) => {
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
           console.log("Current emotion is " + emotion);
-
+          resolve(emotion)
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
         }
       }
     });
-      resolve(emotion);
+      //resolve(emotion);
   });
 }
 
@@ -276,9 +276,9 @@ function speechToText(text) {
         console.log('error:', err);
       }
       else {
-        console.log(JSON.stringify(response.context, null, 2));
+        //console.log(JSON.stringify(response, null, 2));
         //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-        //context = response.context;
+        context = response.context;
         //console.log(context);
 
         david_response = response.output.text[0];
