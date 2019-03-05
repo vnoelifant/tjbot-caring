@@ -186,11 +186,11 @@ const getEmotion = (text) => {
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
-          resolve({emotion, maxScore});
+          //resolve({emotion, maxScore});
         }
       }
     });
-      //resolve({emotion, maxScore});
+      resolve({emotion, maxScore});
   });
 }
 
