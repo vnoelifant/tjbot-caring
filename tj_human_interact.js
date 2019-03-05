@@ -243,7 +243,7 @@ function shineLedEmo(emotion) {
 
 
 // Replace with the context obtained from request
-var context = {};
+//var context = {};
 // call back function for speech_to_text service
 
 function speechToText(text) {
@@ -255,6 +255,7 @@ function speechToText(text) {
           // create context variables from tone analyzer for Watson Assistant
     //var context = {};
   getEmotion(text).then((detectedEmotion) => {
+    var context = {};
     context.emotion = detectedEmotion.emotion;
     //context.emotion = emotion;
 
