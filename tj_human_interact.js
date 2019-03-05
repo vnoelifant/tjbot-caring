@@ -300,7 +300,7 @@ tj.listen(function(text) {
       }
     });
   });
-}
+});
 
 
 
