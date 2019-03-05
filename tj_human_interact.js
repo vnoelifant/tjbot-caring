@@ -186,10 +186,11 @@ const getEmotion = (text) => {
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
+          resolve({emotion, maxScore});
         }
       }
     });
-      resolve({emotion, maxScore});
+      //resolve({emotion, maxScore});
   });
 }
 
@@ -285,24 +286,24 @@ tj.listen(function(text) {
       context: context
     },
 
-    function(err, response) {
-      if (err) {
-        console.log('error:', err);
-      }
-      else {
-        //console.log(JSON.stringify(response, null, 2));
-        //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-        context = response.context;
-        //console.log(context);
-        console.log(JSON.stringify(response, null, 2));
-        david_response = response.output.text[0];
-        tj.speak(david_response);
-        console.log('David says: ' + david_response);
-      //}
-      }
+      function(err, response) {
+        if (err) {
+          console.log('error:', err);
+        }
+        else {
+          //console.log(JSON.stringify(response, null, 2));
+          //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+          context = response.context;
+          //console.log(context);
+          console.log(JSON.stringify(response, null, 2));
+          david_response = response.output.text[0];
+          tj.speak(david_response);
+          console.log('David says: ' + david_response);
+        //}
+        }
+      });
     });
   });
-});
 
 
 
