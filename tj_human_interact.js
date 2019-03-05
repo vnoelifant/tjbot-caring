@@ -105,10 +105,10 @@ const tone_analyzer = new watson.ToneAnalyzertV3({
 
 // Supplying the IAM API key for Watson Assistant service
 // in the constructor, letting the SDK manage the IAM token
-const conversation = new watson.AssistantV1({
-  iam_apikey: credentials.assistant.apikey,
+const assistant = new watson.AssistantV1({
+  iam_apikey: config.credentials.assistant.apikey,
   version: '2018-20-09',
-  url: credentials.assistant.url,
+  url: config.credentials.assistant.url,
 });
 
 /*
@@ -261,7 +261,7 @@ function speechToText(text) {
 
     //tj.converse(WORKSPACEID, text, function(response) {
       //console.log(response.intents[0].intent)
-    conversation.message(
+    assistant.message(
     {
       workspace_id: WORKSPACEID,
       input: {'text': text},
