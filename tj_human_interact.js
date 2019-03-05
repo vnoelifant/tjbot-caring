@@ -259,6 +259,7 @@ function speechToText(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
+    console.log(context.emotion);
     //context.emotion = emotion;
 
     //tj.converse(WORKSPACEID, text, function(response) {
