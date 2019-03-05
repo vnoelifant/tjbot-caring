@@ -256,46 +256,47 @@ function speechToText(text) {
     //var context = {};
 
 
-  getEmotion(text).then((detectedEmotion) => {
-    var context = {};
-    context.emotion = detectedEmotion.emotion;
-    console.log(context.emotion);
-    //context.emotion = emotion;
-
-    //tj.converse(WORKSPACEID, text, function(response) {
-      //console.log(response.intents[0].intent)
-    assistant.message(
-    {
-      workspace_id: WORKSPACEID,
-      input: {'text': text},
-      context: context
-    },
-
-    function(err, response) {
-      if (err) {
-        console.log('error:', err);
-      }
-      else {
-        //console.log(JSON.stringify(response, null, 2));
-        //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-        context = response.context;
-        //console.log(context);
-
-        david_response = response.output.text[0];
-        tj.speak(david_response);
-        console.log('David says: ' + david_response);
-        //}
-      }
-    });
-  });
-}
+ }
 
 // Opens the microphone and streams data to the speech_to_text service
 // callback function getEmotion is called with speech utterances as they are produced
 tj.listen(speechToText);
 
 
+var context - {}
 
+getEmotion(text).then((detectedEmotion) => {
+  //var context = {};
+  context.emotion = detectedEmotion.emotion;
+  console.log(context.emotion);
+  //context.emotion = emotion;
+
+  //tj.converse(WORKSPACEID, text, function(response) {
+    //console.log(response.intents[0].intent)
+  assistant.message(
+  {
+    workspace_id: WORKSPACEID,
+    input: {'text': text},
+    context: context
+  },
+
+  function(err, response) {
+    if (err) {
+      console.log('error:', err);
+    }
+    else {
+      //console.log(JSON.stringify(response, null, 2));
+      //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+      context = response.context;
+      //console.log(context);
+
+      david_response = response.output.text[0];
+      tj.speak(david_response);
+      console.log('David says: ' + david_response);
+    //}
+    }
+  });
+});
 
 
 
