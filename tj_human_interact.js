@@ -294,7 +294,7 @@ tj.listen(function(text) {
           //console.log(JSON.stringify(response, null, 2));
           //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
           context = response.context;
-          //console.log(context);
+          console.log(context);
           console.log(JSON.stringify(response, null, 2));
           david_response = response.output.text[0];
           tj.speak(david_response);
@@ -302,8 +302,8 @@ tj.listen(function(text) {
         //}
         }
       });
-    });
   });
+});
 
 
 
