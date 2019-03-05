@@ -246,8 +246,8 @@ function shineLedEmo(emotion) {
 //var context = {};
 // call back function for speech_to_text service
 
-function speechToText(text) {
-  console.log(tjConfig.robot.name,'hears', text);
+//function speechToText(text) {
+  //console.log(tjConfig.robot.name,'hears', text);
   //if (response.intents && response.intents[0]) {
     //var intent = response.intents[0];
       //if (intent != undefined && intent.intent != undefined) {
@@ -256,48 +256,51 @@ function speechToText(text) {
     //var context = {};
 
 
- }
+// }
 
 // Opens the microphone and streams data to the speech_to_text service
 // callback function getEmotion is called with speech utterances as they are produced
-tj.listen(speechToText);
+//tj.listen(speechToText);
 
 
-var context = {}
+// var context = {}
 
-getEmotion(text).then((detectedEmotion) => {
-  //var context = {};
-  context.emotion = detectedEmotion.emotion;
-  console.log(context.emotion);
-  //context.emotion = emotion;
 
-  //tj.converse(WORKSPACEID, text, function(response) {
-    //console.log(response.intents[0].intent)
-  assistant.message(
-  {
-    workspace_id: WORKSPACEID,
-    input: {'text': text},
-    context: context
-  },
 
-  function(err, response) {
-    if (err) {
-      console.log('error:', err);
-    }
-    else {
-      //console.log(JSON.stringify(response, null, 2));
-      //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-      context = response.context;
-      //console.log(context);
-      console.log(JSON.stringify(response, null, 2));
-      david_response = response.output.text[0];
-      tj.speak(david_response);
-      console.log('David says: ' + david_response);
-    //}
-    }
+tj.listen(function(text) {
+  getEmotion(text).then((detectedEmotion) => {
+    var context = {};
+    context.emotion = detectedEmotion.emotion;
+    console.log(context.emotion);
+    //context.emotion = emotion;
+
+    //tj.converse(WORKSPACEID, text, function(response) {
+      //console.log(response.intents[0].intent)
+    assistant.message(
+    {
+      workspace_id: WORKSPACEID,
+      input: {'text': text},
+      context: context
+    },
+
+    function(err, response) {
+      if (err) {
+        console.log('error:', err);
+      }
+      else {
+        //console.log(JSON.stringify(response, null, 2));
+        //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+        context = response.context;
+        //console.log(context);
+        console.log(JSON.stringify(response, null, 2));
+        david_response = response.output.text[0];
+        tj.speak(david_response);
+        console.log('David says: ' + david_response);
+      //}
+      }
+    });
   });
-});
-
+}
 
 
 
