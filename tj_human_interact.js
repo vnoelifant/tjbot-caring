@@ -277,7 +277,7 @@ function speechToText(text) {
         context = response.context;
         console.log(context);
         //console.log(JSON.stringify(response, null, 2));
-        david_response = response.object.text[0];
+        david_response = response.output.text[0];
         tj.speak(david_response);
         console.log('David says: ' + david_response);
         //}
