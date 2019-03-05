@@ -263,7 +263,7 @@ function speechToText(text) {
 tj.listen(speechToText);
 
 
-var context - {}
+var context = {}
 
 getEmotion(text).then((detectedEmotion) => {
   //var context = {};
@@ -289,7 +289,7 @@ getEmotion(text).then((detectedEmotion) => {
       //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
       context = response.context;
       //console.log(context);
-
+      console.log(JSON.stringify(response, null, 2));
       david_response = response.output.text[0];
       tj.speak(david_response);
       console.log('David says: ' + david_response);
