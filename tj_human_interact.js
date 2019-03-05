@@ -180,14 +180,14 @@ const getEmotion = (text) => {
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
           console.log("Current emotion is " + emotion);
-          //resolve(emotion)
+          resolve(emotion)
           //shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
         }
       }
     });
-        resolve(emotion);
+      //resolve(emotion);
   });
 }
 
@@ -270,7 +270,7 @@ function shineLedEmo(emotion) {
 tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
-    context.emotion = detectedEmotion.emotion;
+    context.emotion = emotion;
     console.log('context.emotion',context.emotion);
     //context.emotion = emotion;
 
