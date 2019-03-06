@@ -187,7 +187,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
         [![IMAGE ALT TEXT](http://img.youtube.com/vi/D4Ysm5rI22U/0.jpg)](http://www.youtube.com/watch?v=D4Ysm5rI22U "TJBot Responds to Sadness and Happiness")
 
       * TODO: 
-        * Improve dialogue flow, add other features to enhance conversation (facial recognition, Twitter API, LED and arm way)
+        * Improve dialogue flow. Right now the user expresses tone, and the robot responds, but doesn't expect an additional response from user. I will be sure to update this so that the user can say same more on the same topic and the robot will give additional responses based on that.  I'll also probably incorporate entities, so the robot can respond to specific instances or events the user is experiencing. I'll also want to add other features to enhance conversation (facial recognition, Twitter API, LED and arm wave)
 
     * #### What problems were encountered? 
       * Time to debug, but nothing really major
