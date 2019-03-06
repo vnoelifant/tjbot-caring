@@ -176,7 +176,31 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * Begin Step 4 from proposal
   * Robot detects quiet environment
   * Program robot to initiate dialogue
-  * This is one of the big sretch goals, so if there are issues, or it is too timily to implement, go back and optimize existing functionalities (for instance, explore the facial recognition and Twitter API capabilities)
+  * This is one of the big sretch goals, so if there are issues, or it is too timily to implement, go back and optimize existing functionalities (for instance, explore the facial recognition and Twitter API capabilities) 
+  
+  * * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Solved errors with connexting client app with Watson Assistant service
+      * Successfully tested dialogue, see image snapshot and video below:
+        ![](screenshots/tjbot_dialogue_test_1.png)
+
+        [![IMAGE ALT TEXT](http://img.youtube.com/vi/D4Ysm5rI22U/0.jpg)](http://www.youtube.com/watch?v=D4Ysm5rI22U "TJBot Responds to Sadness and Happiness")
+
+      * TODO: 
+        * Improve dialogue flow, add other features to enhance conversation (facial recognition, Twitter API, LED and arm way)
+
+    * #### What problems were encountered? 
+      * Time to debug, but nothing really major
+    * #### What are the challenges for the coming week?  
+      * Time to incorporate best features
+
+  * ### **Meeting Minutes**:
+    * **Comments from Matthew**:
+      * 
+    * **Comments from Team**:
+      * 
+
+
 
 * ## **Week 3/4/19**
   * Continue Step 4
