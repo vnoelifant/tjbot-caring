@@ -297,7 +297,7 @@ tj.listen(function(text) {
           context = response.context;
           console.log(context);
 
-          if context.emotion === 'sadness' {
+          if context === 'sadness' {
 
             console.log(JSON.stringify(response, null, 2));
             david_response = response.output.text[0];
