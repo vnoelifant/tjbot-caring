@@ -298,7 +298,7 @@ tj.listen(function(text) {
           context = response.context;
           console.log(context);
 
-          if context.emotion === 'sadness' {
+          if (context.emotion === 'sadness') {
 
             console.log(JSON.stringify(response, null, 2));
             david_response = response.output.text[0];
@@ -306,7 +306,7 @@ tj.listen(function(text) {
             console.log(tjConfig.robot.name,"says", david_response);
 
             tj.listen(function(text) {
-              if response.entities[0].value === 'breakup' {
+              if (response.entities[0].value === 'breakup') {
                 david_response = response.output.text[0];
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
