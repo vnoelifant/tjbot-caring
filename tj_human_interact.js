@@ -106,9 +106,9 @@ const tone_analyzer = new watson.ToneAnalyzertV3({
 // Supplying the IAM API key for Watson Assistant service
 // in the constructor, letting the SDK manage the IAM token
 const assistant = new watson.AssistantV1({
-  iam_apikey: config.credentials.assistant.apikey,
+  iam_apikey: credentials.assistant.apikey,
   version: '2018-20-09',
-  url: config.credentials.assistant.url,
+  url: credentials.assistant.url,
 });
 
 /*
@@ -298,7 +298,7 @@ tj.listen(function(text) {
           console.log(JSON.stringify(response, null, 2));
           david_response = response.output.text[0];
           tj.speak(david_response);
-          console.log('David says: ' + david_response);
+          console.log(tjConfig.robot.name,"says", david_response);
         //}
         }
       });
