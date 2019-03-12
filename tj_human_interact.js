@@ -296,11 +296,22 @@ tj.listen(function(text) {
           //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
           context = response.context;
           console.log(context);
-          console.log(JSON.stringify(response, null, 2));
-          david_response = response.output.text[0];
-          tj.speak(david_response);
-          console.log(tjConfig.robot.name,"says", david_response);
-        //}
+
+          if context.emotion === 'sadness' {
+
+            console.log(JSON.stringify(response, null, 2));
+            david_response = response.output.text[0];
+            tj.speak(david_response);
+            console.log(tjConfig.robot.name,"says", david_response);
+
+            tj.listen(function(text) {
+              if response.entities[0].value === 'breakup' {
+                david_response = response.output.text[0];
+                tj.speak(david_response);
+                console.log(tjConfig.robot.name,"says", david_response);
+              }
+           });
+          }
         }
       });
   });
