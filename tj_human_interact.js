@@ -183,7 +183,7 @@ const getEmotion = (text) => {
           maxScore = maxTone.score
           console.log("Current emotion is " + emotion);
           //resolve(emotion)
-          //shineLedEmo(emotion);
+          shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
           resolve({emotion, maxScore});
@@ -213,7 +213,7 @@ const getEmotion = (text) => {
     * Availability: https://github.com/ibmtjbot/tjbot/blob/master/recipes/sentiment_analysis/sentiment.js
     ***************************************************/
 
-/*
+
 // shine LED based on emotion
 function shineLedEmo(emotion) {
   console.log("Current emotion is " + emotion);
@@ -236,7 +236,7 @@ function shineLedEmo(emotion) {
   }
 }
 
-*/
+
 
 // CONVERSATION
 // function converseDavid() {
@@ -275,7 +275,7 @@ tj.listen(function(text) {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
-    tj.raiseArm(); // David indicates he heard you through arm wave
+    tj.wave(); // David indicates he heard you through arm wave
     //context.emotion = emotion;
 
     //tj.converse(WORKSPACEID, text, function(response) {
