@@ -304,7 +304,8 @@ tj.listen(function(text) {
             david_response = response.output.text[0];
             tj.speak(david_response);
             console.log(tjConfig.robot.name,"says", david_response);
-
+            tj.pauseListening();
+            tj.resumeListening();
             tj.listen(function(text) {
               if (response.entities[0].value === 'breakup') {
                 david_response = response.output.text[0];
