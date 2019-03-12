@@ -71,7 +71,7 @@ var credentials = config.credentials;
 var WORKSPACEID = config.workspaceId;
 
 // these are the hardware capabilities that TJ needs
-var hardware = ['microphone', 'speaker', 'led'];
+var hardware = ['microphone', 'speaker', 'led', 'servo'];
 
 // obtain TJBot's configuration from config.js
 var tjConfig = config.tjConfig;
@@ -275,6 +275,7 @@ tj.listen(function(text) {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
+    tj.raiseArm(); // David indicates he heard you through arm wave
     //context.emotion = emotion;
 
     //tj.converse(WORKSPACEID, text, function(response) {
