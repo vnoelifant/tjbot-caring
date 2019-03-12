@@ -294,13 +294,11 @@ tj.listen(function(text) {
         else {
           //console.log(JSON.stringify(response, null, 2));
           //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+
           context = response.context;
           console.log(context);
-          console.log(JSON.stringify(response, null, 2));
-          david_response = response.output.text[0];
-          tj.speak(david_response);
-          console.log(tjConfig.robot.name,"says", david_response);
-          if context.emotion === 'sadness' {
+
+          if response.context.emotion === 'sadness' {
 
             console.log(JSON.stringify(response, null, 2));
             david_response = response.output.text[0];
