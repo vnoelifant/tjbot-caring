@@ -181,7 +181,7 @@ const getEmotion = (text) => {
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
           maxScore = maxTone.score
-          //console.log("Current emotion is " + emotion);
+          console.log("Current emotion is " + emotion);
           //resolve(emotion)
           shineLedEmo(emotion);
           //converseDavid(text);
@@ -294,31 +294,17 @@ tj.listen(function(text) {
         else {
           //console.log(JSON.stringify(response, null, 2));
           //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-
           context = response.context;
           console.log(context);
-
-          if (context.emotion === 'sadness') {
-
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.output.text[0];
-            tj.speak(david_response);
-            tj.pauseListening();
-            console.log(tjConfig.robot.name,"says", david_response);
-            tj.resumeListening();
-            tj.listen(function(text) {
-              if (response.entities[0].value === 'breakup') {
-                david_response = response.output.text[0];
-                tj.speak(david_response);
-                console.log(tjConfig.robot.name,"says", david_response);
-              }
-           });
-          }
+          console.log(JSON.stringify(response, null, 2));
+          david_response = response.output.text[0];
+          tj.speak(david_response);
+          console.log(tjConfig.robot.name,"says", david_response);
+        //}
         }
       });
   });
 });
-
 
 
 
