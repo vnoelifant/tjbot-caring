@@ -268,6 +268,31 @@ function shineLedEmo(emotion) {
 
 // var context = {}
 
+/**
+ * Check conversation step.
+ */
+function emoStartConvo() {
+  if (context &&
+      context.system &&
+      context.system.dialog_stack[0].dialog_node === 'Emotion Response') {
+    return true;
+  }
+  return false;
+}
+
+
+/**
+ * Check conversation step.
+ * True if we are attempting to text team info to the user.
+ */
+function emoSadConvo() {
+  if (context &&
+      context.system &&
+      context.system.dialog_stack[0].dialog_node === 'Sad Response') {
+    return true;
+  }
+  return false;
+}
 
 
 tj.listen(function(text) {
