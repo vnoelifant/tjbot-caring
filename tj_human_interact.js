@@ -270,7 +270,9 @@ function shineLedEmo(emotion) {
 
 /**
  * Check conversation step.
+ * True if expecting response to detect user emotion
  */
+
 function emoStartConvo() {
   if (context &&
       context.system &&
@@ -283,7 +285,7 @@ function emoStartConvo() {
 
 /**
  * Check conversation step.
- * True if we are attempting to text team info to the user.
+ * True if expecting response to detect sad emotion.
  */
 function emoSadConvo() {
   if (context &&
