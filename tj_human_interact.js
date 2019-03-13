@@ -273,6 +273,8 @@ function shineLedEmo(emotion) {
  * True if expecting response to detect user emotion
  */
 
+
+/**
 function emoStartConvo() {
   if (context &&
       context.system &&
@@ -286,7 +288,7 @@ function emoStartConvo() {
 /**
  * Check conversation step.
  * True if expecting response to detect sad emotion.
- */
+
 function emoSadConvo() {
   if (context &&
       context.system &&
@@ -296,6 +298,7 @@ function emoSadConvo() {
   return false;
 }
 
+*/
 
 tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
