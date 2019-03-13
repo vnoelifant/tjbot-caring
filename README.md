@@ -196,9 +196,9 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
   * ### **Meeting Minutes**:
     * **Comments from Matthew**:
-      * 
-    * **Comments from Team**:
-      * 
+      *  something like an arm wave to indicate that youve been heard, test of what to say, help me understand what its not understanding, the interaction is key, if i say something what wil it do while waiting, if unsure, what it does?, how to create continuing dialogue. map out user experiences. David im feeling sad. Be complete interaction. Do you feel better? feedback from you so that it's helped. 
+    * **Comments from Team**
+      * Continuity. Why are you sad. 
 
 
 
@@ -206,6 +206,37 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * Continue Step 4
   * Test, debug, refine
   * If not implementing Step 4, continue optimizing other functionalities
+  
+  * * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Added arm wave and LED light turn on as cues robot hears user's mood. See video for this test:
+        
+        [![IMAGE ALT TEXT](http://img.youtube.com/vi/Z0xkbjmOUhU/0.jpg)](http://www.youtube.com/watch?v=Z0xkbjmOUhU "TJBot Physical Cues")
+
+      * Code updates to create continuing dialogue (IN WORK). See Watson Assistant images below and test (NOTE robot asks question but goes back to beginning of conversation in cycle. Code updates to fix this are in work.)
+
+
+        ![](screenshots/tjbot_convo_jumps.png)
+
+        ![](screenshots/tjbot_convo_jumps_2.png)
+
+        [![IMAGE ALT TEXT](http://img.youtube.com/vi/vHk79rIxIoI/0.jpg)](http://www.youtube.com/watch?v=vHk79rIxIoI "Continuing Dialogue Test 1")
+
+      * TODO: 
+        * Continue code updates for continuing dialogue, test, add visual recognition and tweet detection to enhance interaction
+
+    * #### What problems were encountered? 
+      * Went past the limit for Speech to Text Service, problems with card authorization for upgrades (okay now, contacted IBM)
+    
+    * #### What are the challenges for the coming week?  
+      * Time to incorporate best features
+
+  * ### **Meeting Minutes**:
+    * **Comments from Matthew**:
+      *  
+    * **Comments from Team**
+      *  
+
 
 * ## **Week 3/11/19**
   * Execute working tests
