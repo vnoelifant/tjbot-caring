@@ -330,6 +330,7 @@ tj.listen(function(text) {
         tj.speak(david_response);
         console.log(tjConfig.robot.name,"says", david_response);
       });
+        tj.resumeListenint();
         tj.listen(function(text) {
           assistant.message({
             workspace_id: WORKSPACEID,
