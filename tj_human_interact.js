@@ -186,6 +186,7 @@ const getEmotion = (text) => {
           shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
+          expressEmo();
           resolve({emotion, maxScore});
         }
       }
@@ -301,7 +302,8 @@ function emoSadConvo() {
 /*
 
 */
-while (true) {
+
+function expressEmo() {
   tj.listen(function(text) {
     getEmotion(text).then((detectedEmotion) => {
       var context = {};
