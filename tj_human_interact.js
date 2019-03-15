@@ -304,7 +304,6 @@ function emoSadConvo() {
 
 
 tj.listen(function(text) {
-  tj.stopListening();
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
@@ -327,6 +326,7 @@ tj.listen(function(text) {
         context = response.context;
         console.log(JSON.stringify(response, null, 2));
         david_response = response.output.text[0];
+        tj.pauseListening();
         tj.speak(david_response);
         console.log(tjConfig.robot.name,"says", david_response);
       });
