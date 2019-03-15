@@ -71,7 +71,7 @@ var credentials = config.credentials;
 var WORKSPACEID = config.workspaceId;
 
 // these are the hardware capabilities that TJ needs
-var hardware = ['microphone', 'speaker', 'led']//, 'servo'];
+var hardware = ['microphone', 'speaker', 'led']//,'servo'];
 
 // obtain TJBot's configuration from config.js
 var tjConfig = config.tjConfig;
@@ -301,8 +301,6 @@ function emoSadConvo() {
 /*
 
 */
-
-
 tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
@@ -313,64 +311,51 @@ tj.listen(function(text) {
 
     //tj.converse(WORKSPACEID, text, function(response) {
       //console.log(response.intents[0].intent)
+    assistant.message(
+    {
+      workspace_id: WORKSPACEID,
+      input: {'text': text},
+      context: context
+    },
+      function(err, response) {
+        if (err) {
+          console.log('error:', err);
+        }
+        else {
+          //console.log(JSON.stringify(response, null, 2));
+          //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
+          context = response.context;
+          console.log(context);
+          console.log(JSON.stringify(response, null, 2));
+          david_response = response.output.text[0];
+          //tj.stopListening();
+          tj.speak(david_response);
+          console.log(tjConfig.robot.name,"says", david_response);
 
-    if (context.emotion === "sadness") {
-      tj.stopListening();
-      assistant.message({
-        workspace_id: WORKSPACEID,
-        input: {'text': text},
-        context: context
-      }, (err, response) => {
-        context = response.context;
-        console.log(JSON.stringify(response, null, 2));
-        david_response = response.output.text[0];
-
-        tj.speak(david_response);
-        console.log(tjConfig.robot.name,"says", david_response);
-      });
-        tj.listen(function(text) {
-          tj.stopListening();
-          assistant.message({
-            workspace_id: WORKSPACEID,
-            input: {'text': text},
-            context: context
-          }, (err, response) => {
-            context = response.context;
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.output.text[0];
-            tj.speak(david_response);
-            console.log(tjConfig.robot.name,"says", david_response);
-            tj.pauseListening();
-          });
-        });
-    }
-
-    else {
-
-      assistant.message(
-      {
-        workspace_id: WORKSPACEID,
-        input: {'text': text},
-        context: context
-      },
-        function(err, response) {
-          if (err) {
-            console.log('error:', err);
+          if(context.emotion === "sadness"){
+            tj.stopListening();
+            //tj.resumeListening();
+            tj.listen(function(text) {
+              assistant.message({
+                workspace_id: WORKSPACEID,
+                input: {'text': text},
+                context: context
+              }, (err, response) => {
+                context = response.context;
+                console.log(JSON.stringify(response, null, 2));
+                david_response = response.output.text[0];
+                tj.speak(david_response);
+                console.log(tjConfig.robot.name,"says", david_response);
+                tj.pauseListening();
+              });
+            });
           }
-          else {
-            //console.log(JSON.stringify(response, null, 2));
-            //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
-            context = response.context;
-            console.log(context);
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.output.text[0];
-            tj.speak(david_response);
-            console.log(tjConfig.robot.name,"says", david_response);
-          }
-      });
-    }
+        }
+    });
   });
 });
+
+
 
 
 
