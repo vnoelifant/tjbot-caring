@@ -315,22 +315,35 @@ tj.listen(function(text) {
       //console.log(response.intents[0].intent)
 
 
-    if (context.emotion === "sadness") {
-      //tj.resumeListening();
-      tj.listen(function(text) {
-        assistant.message({
-          workspace_id: WORKSPACEID,
-          input: {'text': text},
-          context: context
-        }, (err, response) => {
-          context = response.context;
-          console.log(JSON.stringify(response, null, 2));
-          david_response = response.output.text[0];
-          tj.speak(david_response);
-          console.log(tjConfig.robot.name,"says", david_response);
-        });
+  if (context.emotion === "sadness") {
+    //tj.resumeListening();
+
+      assistant.message({
+        workspace_id: WORKSPACEID,
+        input: {'text': text},
+        context: context
+      }, (err, response) => {
+        context = response.context;
+        console.log(JSON.stringify(response, null, 2));
+        david_response = response.output.text[0];
+        tj.stopListening();
+        tj.speak(david_response);
+        console.log(tjConfig.robot.name,"says", david_response);
       });
-    }
+          tj.listen(function(text) {
+            assistant.message({
+              workspace_id: WORKSPACEID,
+              input: {'text': text},
+              context: context
+            }, (err, response) => {
+              context = response.context;
+              console.log(JSON.stringify(response, null, 2));
+              david_response = response.output.text[0];
+              tj.speak(david_response);
+              console.log(tjConfig.robot.name,"says", david_response);
+            });
+          });
+  }
 
     else {
 
