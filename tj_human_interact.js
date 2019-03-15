@@ -352,6 +352,10 @@ function expressEmo() {
                 });
               });
             }
+
+            else {
+              expressEmo();
+            }
           }
       });
     });
