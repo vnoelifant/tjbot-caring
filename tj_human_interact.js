@@ -334,7 +334,7 @@ tj.listen(function(text) {
 
           console.log(tjConfig.robot.name,"says", david_response);
 
-          if(context.emotion === "sadness"){
+          while (context.emotion === "sadness"){
             //tj.resumeListening();
             tj.listen(function(text) {
               assistant.message({
