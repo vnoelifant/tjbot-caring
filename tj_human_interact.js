@@ -289,6 +289,7 @@ function emoStartConvo() {
  // Check conversation step.
  // True if expecting response to detect sad emotion.
 
+/*
 function emoSadConvo() {
   if (context &&
       context.system &&
@@ -297,8 +298,9 @@ function emoSadConvo() {
   }
   return false;
 }
+/*
 
-
+*/
 tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
@@ -327,9 +329,10 @@ tj.listen(function(text) {
           console.log(JSON.stringify(response, null, 2));
           david_response = response.output.text[0];
           tj.speak(david_response);
-          tj.pauseListening();
+
           console.log(tjConfig.robot.name,"says", david_response);
-          if (emoSadConvo()) {
+          tj.pauseListening();
+          if(context.emotion === "sadness"){
             tj.resumeListening();
             tj.listen(function(text) {
               assistant.message({
