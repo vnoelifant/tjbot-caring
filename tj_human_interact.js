@@ -347,8 +347,10 @@ tj.listen(function(text) {
                 david_response = response.output.text[0];
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
-                context = null
-                console.log(context)
+                //context = null
+                console.log('context',context)
+                var context = {};
+                context.emotion = detectedEmotion.emotion;
               });
             });
           }
