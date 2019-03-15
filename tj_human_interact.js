@@ -306,7 +306,7 @@ tj.listen(function(text) {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
-    tj.wave(); // David indicates he heard you through arm wave
+    //tj.wave(); // David indicates he heard you through arm wave
     //context.emotion = emotion;
 
     //tj.converse(WORKSPACEID, text, function(response) {
