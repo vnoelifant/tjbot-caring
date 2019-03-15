@@ -2,22 +2,60 @@
   "name": "tjbot-caring",
   "intents": [
     {
-      "intent": "receive-support",
+      "intent": "appreciation",
       "examples": [
         {
-          "text": "I feel so horrible"
+          "text": "Thank you so much for your support."
         },
         {
-          "text": "I am so sad"
+          "text": "Thanks for listening."
         },
         {
-          "text": "I had an awful day"
+          "text": "Thank you for believing in me."
+        },
+        {
+          "text": "Okay, I appreciate your advice."
         }
       ],
-      "description": "User is in a negative mood and in need of support"
+      "description": "Showing TJBot appreciation for his response to mood"
+    },
+    {
+      "intent": "breakupadvice",
+      "examples": [
+        {
+          "text": "I just got out of a relationship."
+        },
+        {
+          "text": "I got dumped."
+        },
+        {
+          "text": "I had a terrible breakup."
+        },
+        {
+          "text": "I need help talking about my breakup."
+        },
+        {
+          "text": "I broke up with my boyfriend."
+        }
+      ],
+      "description": "need support from David regarding recent breakup"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "situation",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "breakup",
+          "synonyms": [
+            "relationship"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
   "language": "en",
   "metadata": {
     "api_version": {
@@ -27,6 +65,185 @@
   },
   "description": "",
   "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I love you!"
+              },
+              {
+                "text": "You kick butt!"
+              },
+              {
+                "text": "I am so glad you are happy. "
+              },
+              {
+                "text": "Let's party baby!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {},
+      "conditions": "$emotion=='joy'",
+      "dialog_node": "node_3_1552370780280",
+      "previous_sibling": "node_2_1552370733803"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I wish I could take care of you."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {},
+      "conditions": "$emotion=='fear'",
+      "dialog_node": "node_4_1552370843870",
+      "previous_sibling": "node_3_1552370780280"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Relax. Take a deep breath. It'll all be okay."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {},
+      "conditions": "$emotion=='anger'",
+      "dialog_node": "node_2_1552370733803",
+      "previous_sibling": "node_1_1551782003487"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Aw. Why are you sad? Want to talk about it?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1552359274164"
+      },
+      "conditions": "$emotion=='sadness'",
+      "dialog_node": "node_1_1551782003487",
+      "previous_sibling": "node_1_1552359274164"
+    },
+    {
+      "type": "standard",
+      "title": "Sad Response",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I'm so sorry. Things will get better. I promise!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_3_1552689884327"
+      },
+      "conditions": "#breakupadvice",
+      "dialog_node": "node_1_1552359274164",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I'm so sorry. Things will get better. I promise!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1552359274164",
+      "disabled": true,
+      "metadata": {},
+      "dialog_node": "node_1_1552688162247",
+      "previous_sibling": "node_3_1552689884327"
+    },
+    {
+      "type": "response_condition",
+      "output": {},
+      "parent": "node_1_1552359274164",
+      "disabled": true,
+      "metadata": {},
+      "conditions": "$emotion",
+      "dialog_node": "node_2_1552688182762",
+      "previous_sibling": "node_1_1552688162247"
+    },
+    {
+      "type": "standard",
+      "title": "Show Appreciation",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Any time. I am always here for you. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1552359274164",
+      "metadata": {},
+      "conditions": "#appreciation",
+      "dialog_node": "node_3_1552689884327"
+    },
     {
       "type": "standard",
       "title": "Anything else",
@@ -56,29 +273,17 @@
     },
     {
       "type": "standard",
-      "title": "Give support",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Oh no. It’ll all be better. Trust me. Read your favorite book, watch something silly, and tomorrow is another day!"
-              },
-              {
-                "text": "Mar Har!"
-              },
-              {
-                "text": "Despite knowing the journey and where it leads, I embrace it and welcome every moment."
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+      "title": "Emotion Response",
+      "output": {},
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
       },
-      "metadata": {},
-      "conditions": "$emotion ==  'sadness'",
-      "dialog_node": "node_1_1550644609790"
+      "conditions": "$emotion",
+      "digress_in": "returns",
+      "dialog_node": "node_1_1550644609790",
+      "digress_out": "allow_all"
     }
   ],
   "workspace_id": "a4395b70-cee4-46be-a1bd-f2ce57e1f5af",
