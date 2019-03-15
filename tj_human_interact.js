@@ -216,7 +216,7 @@ const getEmotion = (text) => {
 
 // shine LED based on emotion
 function shineLedEmo(emotion) {
-  console.log("Current emotion is " + emotion);
+  //console.log("Current emotion is " + emotion);
 
   switch (emotion) {
   case 'anger':
@@ -328,14 +328,14 @@ tj.listen(function(text) {
           console.log(context);
           console.log(JSON.stringify(response, null, 2));
           david_response = response.output.text[0];
-          tj.pauseListening();
+          tj.stopListening();
           tj.speak(david_response);
 
 
           console.log(tjConfig.robot.name,"says", david_response);
 
           if(context.emotion === "sadness"){
-            tj.resumeListening();
+            //tj.resumeListening();
             tj.listen(function(text) {
               assistant.message({
                 workspace_id: WORKSPACEID,
