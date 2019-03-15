@@ -348,6 +348,7 @@ tj.listen(function(text) {
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
                 context = null
+                console.log(context)
               });
             });
           }
