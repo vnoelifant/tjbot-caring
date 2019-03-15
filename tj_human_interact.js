@@ -349,8 +349,9 @@ tj.listen(function(text) {
                 console.log(tjConfig.robot.name,"says", david_response);
                 //context = null
                 console.log('context',context)
-                var context = {};
+                let context = null
                 context.emotion = detectedEmotion.emotion;
+                console.log('context',context)
               });
             });
           }
