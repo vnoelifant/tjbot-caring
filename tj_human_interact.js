@@ -333,7 +333,7 @@ function convWithDavid() {
               tj.resumeListening();
               tj.listen(function(text) {
                 assistant.message({
-                  workspace_id: WORKSPACEID
+                  workspace_id: WORKSPACEID,
                   input: {'text': text},
                   context: context
                 }, (err, response) => {
