@@ -317,7 +317,7 @@ tj.listen(function(text) {
 
     if (context.emotion === "sadness") {
       //tj.resumeListening();
-
+      tj.stopListening();
       assistant.message({
         workspace_id: WORKSPACEID,
         input: {'text': text},
@@ -326,11 +326,10 @@ tj.listen(function(text) {
         context = response.context;
         console.log(JSON.stringify(response, null, 2));
         david_response = response.output.text[0];
-        tj.stopListening();
+
         tj.speak(david_response);
         console.log(tjConfig.robot.name,"says", david_response);
       });
-        tj.resumeListening();
         tj.listen(function(text) {
           assistant.message({
             workspace_id: WORKSPACEID,
