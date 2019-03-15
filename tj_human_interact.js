@@ -328,13 +328,12 @@ tj.listen(function(text) {
           console.log(context);
           console.log(JSON.stringify(response, null, 2));
           david_response = response.output.text[0];
-          tj.stopListening();
+          //tj.stopListening();
           tj.speak(david_response);
-
-
           console.log(tjConfig.robot.name,"says", david_response);
 
           if(context.emotion === "sadness"){
+            tj.stopListening();
             //tj.resumeListening();
             tj.listen(function(text) {
               assistant.message({
