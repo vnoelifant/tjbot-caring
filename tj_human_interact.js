@@ -186,7 +186,6 @@ const getEmotion = (text) => {
           shineLedEmo(emotion);
           //converseDavid(text);
           //converseDavid();
-          expressEmo();
           resolve({emotion, maxScore});
         }
       }
@@ -359,5 +358,5 @@ function expressEmo() {
   });
 }
 
-
+expressEmo();
 
