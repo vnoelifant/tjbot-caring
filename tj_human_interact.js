@@ -303,8 +303,9 @@ function emoSadConvo() {
 */
 
 
-tj.listen(function(text) {
-  getEmotion(text).then((detectedEmotion) => {
+//tj.listen(function(text) {
+  //getEmotion(text).then((detectedEmotion) => {
+tj.listen(getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
