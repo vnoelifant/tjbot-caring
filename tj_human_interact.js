@@ -326,7 +326,7 @@ tj.listen(function(text) {
         context = response.context;
         console.log(JSON.stringify(response, null, 2));
         david_response = response.output.text[0];
-        tj.pauseListening();
+        tj.stopListening();
         tj.speak(david_response);
         console.log(tjConfig.robot.name,"says", david_response);
       });
