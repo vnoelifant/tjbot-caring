@@ -341,13 +341,13 @@ tj.listen(function(text) {
                 input: {'text': text},
                 context: context
               }, (err, response) => {
+                context = null
                 context = response.context;
                 console.log(context);
                 console.log(JSON.stringify(response, null, 2));
                 david_response = response.output.text[0];
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
-                tj.stopListening();
               });
             });
           }
