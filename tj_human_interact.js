@@ -71,7 +71,7 @@ var credentials = config.credentials;
 var WORKSPACEID = config.workspaceId;
 
 // these are the hardware capabilities that TJ needs
-var hardware = ['microphone', 'speaker', 'led', 'servo'];
+var hardware = ['microphone', 'speaker', 'led']//,'servo'];
 
 // obtain TJBot's configuration from config.js
 var tjConfig = config.tjConfig;
