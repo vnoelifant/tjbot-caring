@@ -236,81 +236,13 @@ function shineLedEmo(emotion) {
   }
 }
 
-
-
 // CONVERSATION
-// function converseDavid() {
-// test Watson dialogue
-//
-
-
-
-// Replace with the context obtained from request
-//var context = {};
-// call back function for speech_to_text service
-
-//function speechToText(text) {
-  //console.log(tjConfig.robot.name,'hears', text);
-  //if (response.intents && response.intents[0]) {
-    //var intent = response.intents[0];
-      //if (intent != undefined && intent.intent != undefined) {
-        // if intents.intent == "receive-support" {
-          // create context variables from tone analyzer for Watson Assistant
-    //var context = {};
-
-
-// }
-
-// Opens the microphone and streams data to the speech_to_text service
-// callback function getEmotion is called with speech utterances as they are produced
-//tj.listen(speechToText);
-
-
-// var context = {}
-
-/**
- * Check conversation step.
- * True if expecting response to detect user emotion
- */
-
-
-/**
-function emoStartConvo() {
-  if (context &&
-      context.system &&
-      context.system.dialog_stack[0].dialog_node === 'Emotion Response') {
-    return true;
-  }
-  return false;
-}
-*/
-
-
- // Check conversation step.
- // True if expecting response to detect sad emotion.
-
-/*
-function emoSadConvo() {
-  if (context &&
-      context.system &&
-      context.system.dialog_stack[0].dialog_node === 'Sad Response') {
-    return true;
-  }
-  return false;
-}
-/*
-
-*/
 tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
     //tj.wave(); // David indicates he heard you through arm wave
-    //context.emotion = emotion;
-
-    //tj.converse(WORKSPACEID, text, function(response) {
-      //console.log(response.intents[0].intent)
     assistant.message(
     {
       workspace_id: WORKSPACEID,
@@ -322,8 +254,6 @@ tj.listen(function(text) {
           console.log('error:', err);
         }
         else {
-          //console.log(JSON.stringify(response, null, 2));
-          //if(response.intents.length > 0 && response.intents[0].intent === "receive-support") {
           context = response.context;
           console.log(context);
           console.log(JSON.stringify(response, null, 2));
@@ -334,7 +264,6 @@ tj.listen(function(text) {
 
           if(context.emotion === "sadness"){
             tj.stopListening();
-            //tj.resumeListening();
             tj.listen(function(text) {
               assistant.message({
                 workspace_id: WORKSPACEID,
@@ -342,7 +271,8 @@ tj.listen(function(text) {
                 context: context
               }, (err, response) => {
                 context = response.context;
-                console.log(context);
+                console.log('input text',text);
+                console.log('context',context);
                 console.log(JSON.stringify(response, null, 2));
                 david_response = response.output.text[0];
                 tj.speak(david_response);
