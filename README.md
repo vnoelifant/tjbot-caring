@@ -242,6 +242,19 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   * Execute working tests
   * Begin final report and video
   * Work on finalizing Github repo
+  
+  * ### **Meeting Agenda**:
+    * #### What was accomplished? 
+      * Updated dialogue to show continuing dialogue with sadness tone. See videos below. 
+      
+      [![IMAGE ALT TEXT](http://img.youtube.com/vi/0zMfVJuMsSM/0.jpg)](http://www.youtube.com/watch?v=0zMfVJuMsSM "Sadness Dialogue-Test 1-Breakup")
+
+      [![IMAGE ALT TEXT](http://img.youtube.com/vi/3qBcZ4wKbwc/0.jpg)](http://www.youtube.com/watch?v=3qBcZ4wKbwc "Sadness Dialogue-Test 2-Job Loss")
+
+      [![IMAGE ALT TEXT](http://img.youtube.com/vi/7M7u0vWO89Y/0.jpg)](http://www.youtube.com/watch?v=7M7u0vWO89Y "Sadness Dialogue-Test 3-User Requests Not to Talk")
+
+      * TODO: 
+        * Enhance dialogue, incorporate other tones, final report
 
 * ## *Week 3/18/19**
   * Clean up any of the remaining final tasks (report/video/repo)
