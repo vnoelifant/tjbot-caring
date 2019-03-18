@@ -245,8 +245,24 @@ This is a project to build/program a simple, caring emotionally intelligent robo
   
   * ### **Meeting Agenda**:
     * #### What was accomplished? 
-      * Updated dialogue to show continuing dialogue with sadness tone. See videos below. 
+      * Updated dialogue to show continuing dialogue with sadness tone. See dialogue snapshots and videos below. 
       
+      * **Dialogue process summary**: 
+        * User expresses a sad phrase, TJBot detect that it is said via context variable passed from the client application, $emotion=='sad', he asks the user if he would like to talk more about it, and the user can choose yes or no, via intents #yesadvice or #noadvice". If TJBot detects #yesadvice, he asks the user what is going on. Then the user states he is in a breakup via intent #breakup or job loss #jobloss, and TJBot responds accordingly. 
+      
+        Finally, after receiving TJBots advice, the node Show Appreciation shows user's appreciation via intent #appreciation. More will be added to this flow along with other tones, per meeting discussions. For intance, TJBot gets feedback from user about whether response helped, or if emotion level is not so high, perform different actions, and branch to different tones during conversation of first detected tone. 
+
+         ![](screenshots/tjbot_intents.png)
+
+         ![](screenshots/tjbot_intents_breakup.png)
+
+         ![](screenshots/tjbot_dialogue_sadness_test1.png)
+        
+         ![](screenshots/tjbot_dialogue_sadness2_test1.png)
+        
+         ![](screenshots/tjbot_dialogue_sadness3_test1.png)
+         
+
       [![IMAGE ALT TEXT](http://img.youtube.com/vi/0zMfVJuMsSM/0.jpg)](http://www.youtube.com/watch?v=0zMfVJuMsSM "Sadness Dialogue-Test 1-Breakup")
 
       [![IMAGE ALT TEXT](http://img.youtube.com/vi/3qBcZ4wKbwc/0.jpg)](http://www.youtube.com/watch?v=3qBcZ4wKbwc "Sadness Dialogue-Test 2-Job Loss")
@@ -255,6 +271,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
       * TODO: 
         * Enhance dialogue, incorporate other tones, final report
+      
 
 * ## *Week 3/18/19**
   * Clean up any of the remaining final tasks (report/video/repo)
