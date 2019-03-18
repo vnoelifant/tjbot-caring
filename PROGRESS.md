@@ -252,14 +252,22 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       
         Finally, after receiving TJBots advice, the node Show Appreciation shows user's appreciation via intent #appreciation. More will be added to this flow along with other tones, per meeting discussions. For intance, TJBot gets feedback from user about whether response helped, or if emotion level is not so high, perform different actions, and branch to different tones during conversation of first detected tone. 
 
+        *Intents*
          ![](screenshots/tjbot_intents.png)
 
+         *Intent User Examples (for training)*
          ![](screenshots/tjbot_intents_breakup.png)
 
+         *Context Variable from tone detection*
+         ![](screenshots/tjbot_tone_context_var.png)
+
+         *Dialogue Flow-TJ to respond to Sadness*
          ![](screenshots/tjbot_dialogue_sadness_test1.png)
         
+         *Dialogue Flow-TJ gives advice*
          ![](screenshots/tjbot_dialogue_sadness2_test1.png)
-        
+          
+         *User shows appreciation for TJ advice*
          ![](screenshots/tjbot_dialogue_sadness3_test1.png)
          
 
