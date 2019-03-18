@@ -248,7 +248,14 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * Updated dialogue to show continuing dialogue with sadness tone. See dialogue snapshots and videos below. 
       
       * **Dialogue process summary**: 
-        * User expresses a sad phrase, TJBot detect that it is said via context variable passed from the client application, $emotion=='sad', he asks the user if he would like to talk more about it, and the user can choose yes or no, via intents #yesadvice or #noadvice". If TJBot detects #yesadvice, he asks the user what is going on. Then the user states he is in a breakup via intent #breakup or job loss #jobloss, and TJBot responds accordingly. 
+        * User expresses a sad phrase, TJBot detect that it is said via context variable passed from the client application, $emotion=='sad'. To create this variable, the node.js code firs calls  Watson Tone Analyzer before sending the user input to the Assistant Service. Since every call in Node.js is asynchronous, we need to wrap the Tone Analyzer API call into a promise and resolve the promise using then() to call the Assistnat API. See snapshots below: 
+
+        ![](screenshots/tjbot_promise.png)
+        
+        ![](screenshots/tone_context2_var.png)
+        
+
+        He asks the user if he would like to talk more about it, and the user can choose yes or no, via intents #yesadvice or #noadvice". If TJBot detects #yesadvice, he asks the user what is going on. Then the user states he is in a breakup via intent #breakup or job loss #jobloss, and TJBot responds accordingly. 
       
         Finally, after receiving TJBots advice, the node Show Appreciation shows user's appreciation via intent #appreciation. More will be added to this flow along with other tones, per meeting discussions. For intance, TJBot gets feedback from user about whether response helped, or if emotion level is not so high, perform different actions, and branch to different tones during conversation of first detected tone. 
 
