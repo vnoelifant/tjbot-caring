@@ -266,6 +266,7 @@ function startConvo() {
           if(context.emotion === "sadness"){
             tj.stopListening();
             tj.listen(function(text) {
+              tj.stopListening();
               assistant.message({
                 workspace_id: WORKSPACEID,
                 input: {'text': text},
@@ -278,7 +279,6 @@ function startConvo() {
                 david_response = response.output.text[0];
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
-                tj.stopListening();
               });
             });
           }
