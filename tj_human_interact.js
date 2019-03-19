@@ -280,6 +280,7 @@ function toneAndConverse() {
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
                 console.log(context);
+                tj.resumeListening();
                 // attempt to switch to happy mood
                 if (response.intents[0].intent === "advicegood"){
                   context = {};
