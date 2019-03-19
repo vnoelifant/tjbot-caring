@@ -237,7 +237,7 @@ function shineLedEmo(emotion) {
 }
 
 // DETECT SPEECH, CONVERT IT TO TEXT,
-startConvo(){
+function startConvo(){
 //function speechToText(text) {
   tj.listen(function(text) {
   // DETECT TONE
