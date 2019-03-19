@@ -294,9 +294,11 @@ function speechToText(text) {
                   console.log("intent",response.intents[0].intent);
                   console.log("input text",response.input.text);
                   console.log('input text',text);
+                  console.log('emotion',context.emotion)
                   //var sadToHappyText = response.input.text;
-                  var sadToHappyText = text;
-                  tj.listen(speechToText(sadToHappyText));
+                  //var sadToHappyText = text;
+                  //tj.listen(speechToText(sadToHappyText));
+                  tj.listen(speechToText);
                 }
                   //context = {};
                   //console.log(response.intents[0].intent);
