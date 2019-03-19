@@ -240,6 +240,7 @@ function shineLedEmo(emotion) {
 function speechToText(text) {
   //tj.listen(function(text) {
   // DETECT TONE
+  tj.stopListening();
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
@@ -266,7 +267,7 @@ function speechToText(text) {
           console.log(tjConfig.robot.name,"says", david_response);
 
           if(context.emotion === "sadness"){
-            tj.stopListening();
+            ///tj.stopListening();
             tj.listen(function(text) {
               tj.pauseListening();
               assistant.message({
@@ -288,8 +289,9 @@ function speechToText(text) {
                   context = {};
                   console.log("context",context);
                   console.log("intent",response.intents[0].intent);
-                  console.log("intent text",response.intents[0].intent.text);
-                  speechToText(response.intents[0].intent.text);
+                  console.log("input text",response.input.text);
+                  var sadToHappyText = response.input.text;
+                  speechToText(sadToHappyText);
                 }
                   //context = {};
                   //console.log(response.intents[0].intent);
