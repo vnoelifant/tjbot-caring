@@ -237,9 +237,8 @@ function shineLedEmo(emotion) {
 }
 
 // DETECT SPEECH, CONVERT IT TO TEXT,
-function startConvo(){
-//function speechToText(text) {
-  tj.listen(function(text) {
+function speechToText(text) {
+  //tj.listen(function(text) {
   // DETECT TONE
   tj.stopListening();
   getEmotion(text).then((detectedEmotion) => {
@@ -297,10 +296,9 @@ function startConvo(){
                   console.log('input text',text);
                   console.log('emotion',context.emotion)
                   //var sadToHappyText = response.input.text;
-                  //var sadToHappyText = text;
+                  var sadToHappyText = text;
                   //tj.listen(speechToText(sadToHappyText));
                   //tj.listen(speechToText);
-                  startConvo();
                 }
                   //context = {};
                   //console.log(response.intents[0].intent);
@@ -320,11 +318,11 @@ function startConvo(){
         }
       });
     });
-  });
+  //});
 }
-//tj.listen(speechToText);
-startConvo();
-
+while (true) {
+  tj.listen(speechToText);
+}
 
 
 
