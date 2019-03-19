@@ -284,14 +284,7 @@ function toneAndConverse() {
                 // attempt to switch to happy mood
                 if (response.intents[0].intent === "advicegood"){
                   context = {};
-                  getEmotion(response.input.text).then((detectedEmotion) => {
-
-                    console.log(JSON.stringify(response,null,2))
-                    david_response = response.output.text[0];
-                    tj.speak(david_response);
-                  });
-
-
+                  getEmotion(response.intents[0].intent.text);
                 }
                   //context = {};
                   //console.log(response.intents[0].intent);
