@@ -292,7 +292,9 @@ function speechToText(text) {
                   console.log("context",context);
                   console.log("intent",response.intents[0].intent);
                   console.log("input text",response.input.text);
-                  var sadToHappyText = response.input.text;
+                  console.log('input text',text);
+                  //var sadToHappyText = response.input.text;
+                  var sadToHappyText = text;
                   speechToText(sadToHappyText);
                 }
                   //context = {};
