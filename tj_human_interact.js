@@ -281,6 +281,8 @@ tj.listen(function(text) {
               });
             });
           }
+
+          var context = {}
         }
     });
   });
