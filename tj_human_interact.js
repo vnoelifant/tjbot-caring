@@ -276,8 +276,10 @@ function speechToText(text) {
                 context: context
               }, (err, response) => {
                 context = response.context;
+                console.log("intent",response.intents[0].intent);
                 console.log('input text',text);
                 console.log('context',context);
+                console.log('emotion',context.emotion)
                 console.log(JSON.stringify(response, null, 2));
                 david_response = response.output.text[0];
                 tj.speak(david_response);
