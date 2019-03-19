@@ -285,7 +285,7 @@ function shineLedEmo(emotion) {
           //else if (context.system.dialog_turn_counter == 1) {
             //context = {};
             //startConvo();
-          }
+          //}
         }
       });
     });
