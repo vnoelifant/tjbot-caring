@@ -288,6 +288,7 @@ function speechToText(text) {
                 tj.resumeListening();
                 // attempt to switch to happy mood
                 if (response.intents[0].intent === "advicegood"){
+                  tj.stopListening();
                   context = {};
                   console.log("context",context);
                   console.log("intent",response.intents[0].intent);
