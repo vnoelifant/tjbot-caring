@@ -240,8 +240,8 @@ function shineLedEmo(emotion) {
 function speechToText(text) {
   //tj.listen(function(text) {
   // DETECT TONE
-  tj.shine('yellow')
-  tj.wave();
+  tj.shine('blue');
+  //tj.wave();
   tj.pauseListening();
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
