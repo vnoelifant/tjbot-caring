@@ -240,7 +240,9 @@ function shineLedEmo(emotion) {
 function speechToText(text) {
   //tj.listen(function(text) {
   // DETECT TONE
-  tj.stopListening();
+  tj.shine('yellow')
+  tj.wave();
+  tj.pauseListening();
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
@@ -320,9 +322,9 @@ function speechToText(text) {
     });
   //});
 }
-while (true) {
-  tj.listen(speechToText);
-}
+
+tj.listen(speechToText);
+
 
 
 
