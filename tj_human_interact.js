@@ -282,9 +282,9 @@ function toneAndConverse() {
                 console.log(context);
                 tj.resumeListening();
                 // attempt to switch to happy mood
-                context = {};
                 if (response.intents[0].intent === "advicegood"){
                   //context = {};
+                  console.log(response.intents[0].intent);
                   console.log(context);
                   toneAndConverse();
                 }
