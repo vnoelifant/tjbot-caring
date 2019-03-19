@@ -283,11 +283,21 @@ function toneAndConverse() {
                 tj.resumeListening();
                 // attempt to switch to happy mood
                 if (response.intents[0].intent === "advicegood"){
-                  //context = {};
-                  console.log(response.intents[0].intent);
-                  console.log(context);
-                  toneAndConverse();
+                  context = {};
+                  getEmotion(response.input.text).then((detectedEmotion) => {
+
+                    console.log(JSON.stringify(response,null,2))
+                    david_response = response.output.text[0];
+                    tj.speak(david_response);
+                  });
+
+
                 }
+                  //context = {};
+                  //console.log(response.intents[0].intent);
+                  //console.log(context);
+                  //toneAndConverse();
+                //}
                 // attempt to //detect new tone (2 works after 2 responses)
                 //if (context.system.dialog_turn_counter == 1) {
                 //if (context.system.dialog_stack[0].dialog_node === 'Conversation_Start') {
