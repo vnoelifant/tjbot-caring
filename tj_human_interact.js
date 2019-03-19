@@ -236,8 +236,8 @@ function shineLedEmo(emotion) {
   }
 }
 
-// CONVERSATION
-function startConvo() {
+// CONVERSATION WITH TONE
+function toneAndConverse() {
   tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
@@ -280,9 +280,12 @@ function startConvo() {
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
                 console.log(context);
-                context = {};
-                console.log(context);
-                startConvo();
+                // attempt to switch to happy mood
+                if (response.intents[0].intent === "advicegood"){
+                  context = {};
+                  console.log(context);
+                  toneAndConverse();
+                }
                 // attempt to //detect new tone (2 works after 2 responses)
                 //if (context.system.dialog_turn_counter == 1) {
                 //if (context.system.dialog_stack[0].dialog_node === 'Conversation_Start') {
@@ -298,7 +301,7 @@ function startConvo() {
     });
   });
 }
-startConvo()
+toneAndConverse();
 
 
 
