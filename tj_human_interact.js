@@ -280,12 +280,12 @@ function startConvo() {
                 tj.speak(david_response);
                 console.log(tjConfig.robot.name,"says", david_response);
                 console.log(context);
+                if (context.system.dialog_turn_counter == 2) {
+                  context = {};
+                  startConvo();
+                }
               });
             });
-          }
-          else if (context.system.dialog_turn_counter == 2) {
-            context = {};
-            startConvo();
           }
         }
       });
