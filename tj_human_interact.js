@@ -236,14 +236,16 @@ function shineLedEmo(emotion) {
   }
 }
 
-// CONVERSATION WITH TONE
-function toneAndConverse() {
-  tj.listen(function(text) {
+// DETECT SPEECH, CONVERT IT TO TEXT,
+function speechToText(text) {
+  //tj.listen(function(text) {
+  // DETECT TONE
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
     //tj.wave(); // David indicates he heard you through arm wave
+    // START CONVERSATION
     assistant.message(
     {
       workspace_id: WORKSPACEID,
@@ -284,7 +286,10 @@ function toneAndConverse() {
                 // attempt to switch to happy mood
                 if (response.intents[0].intent === "advicegood"){
                   context = {};
-                  getEmotion(response.intents[0].intent.text);
+                  console.log("context",context);
+                  console.log("intent",response.intents[0].intent);
+                  console.log("intent text",response.intents[0].intent.text);
+                  speechToText(response.intents[0].intent.text);
                 }
                   //context = {};
                   //console.log(response.intents[0].intent);
@@ -304,9 +309,9 @@ function toneAndConverse() {
         }
       });
     });
-  });
+  //});
 }
-toneAndConverse();
+tj.listen(speechToText);
 
 
 
