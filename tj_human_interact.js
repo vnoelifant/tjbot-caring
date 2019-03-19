@@ -283,7 +283,7 @@ function shineLedEmo(emotion) {
                 });
               });
             }
-            startConvo();
+            //startConvo();
           }
       });
     });
