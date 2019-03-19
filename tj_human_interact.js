@@ -283,8 +283,7 @@ function shineLedEmo(emotion) {
               });
             }
             else {
-               var context = {}
-               tj.stopListening();
+               var context = {};
                startConvo();
             }
 
