@@ -278,16 +278,14 @@ function shineLedEmo(emotion) {
                   david_response = response.output.text[0];
                   tj.speak(david_response);
                   console.log(tjConfig.robot.name,"says", david_response);
-
-
                 });
               });
             }
-            else {
-              var context = {};
-              startConvo();
-            }
-
+          }
+          else {
+            tj.stopListening();
+            var context = {};
+            startConvo();
           }
       });
     });
