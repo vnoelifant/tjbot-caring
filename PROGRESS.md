@@ -287,6 +287,14 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * TODO: 
         * Enhance dialogue, incorporate other tones, final report
       
+      * **UPDATE 3-18-19**
+        * Dialogue updated that allows robot to get feedback from user in whether his response for sadness helped.  See extended dialogue tree and video below:
+        *TJBot asks for feedback from sad user: Humor and relatability included*
+         ![](screenshots/tjbot_dialogue_sadness_feedback.png)
+       
+        [![IMAGE ALT TEXT](http://img.youtube.com/vi/a0fzIPhx7YU/0.jpg)](http://www.youtube.com/watch?v=a0fzIPhx7YU "Sadness Dialogue-Test 4-TJBot asks for user feedback in sadness response")
+        
+      
 
 * ## *Week 3/18/19**
   * Clean up any of the remaining final tasks (report/video/repo)
