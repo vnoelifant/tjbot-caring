@@ -279,15 +279,11 @@ function shineLedEmo(emotion) {
                   tj.speak(david_response);
                   console.log(tjConfig.robot.name,"says", david_response);
 
+
                 });
               });
             }
-            else {
-               var context = {};
-               startConvo();
-            }
-
-
+            startConvo();
           }
       });
     });
