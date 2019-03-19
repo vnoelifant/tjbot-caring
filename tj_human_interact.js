@@ -237,7 +237,7 @@ function shineLedEmo(emotion) {
 }
 
 // CONVERSATION
-function startConvo() {
+//function startConvo() {
   tj.listen(function(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
@@ -282,16 +282,16 @@ function startConvo() {
               });
             });
           }
-          else if (context.system.dialog_turn_counter == 1) {
-            context = {};
-            startConvo();
+          //else if (context.system.dialog_turn_counter == 1) {
+            //context = {};
+            //startConvo();
           }
         }
       });
     });
   });
-}
-startConvo()
+//}
+//startConvo()
 
 
 
