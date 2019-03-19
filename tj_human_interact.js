@@ -236,58 +236,55 @@ function shineLedEmo(emotion) {
   }
 }
 
-  // CONVERSATION
-  function startConvo() {
-    tj.listen(function(text) {
-    getEmotion(text).then((detectedEmotion) => {
-      var context = {};
-      context.emotion = detectedEmotion.emotion;
-      console.log('context.emotion',context.emotion);
-      //tj.wave(); // David indicates he heard you through arm wave
-      assistant.message(
-      {
-        workspace_id: WORKSPACEID,
-        input: {'text': text},
-        context: context
-      },
-        function(err, response) {
-          if (err) {
-            console.log('error:', err);
-          }
-          else {
-            context = response.context;
-            console.log(context);
-            console.log(JSON.stringify(response, null, 2));
-            david_response = response.output.text[0];
-            //tj.stopListening();
-            tj.speak(david_response);
-            console.log(tjConfig.robot.name,"says", david_response);
+// CONVERSATION
+function startConvo() {
+  tj.listen(function(text) {
+  getEmotion(text).then((detectedEmotion) => {
+    var context = {};
+    context.emotion = detectedEmotion.emotion;
+    console.log('context.emotion',context.emotion);
+    //tj.wave(); // David indicates he heard you through arm wave
+    assistant.message(
+    {
+      workspace_id: WORKSPACEID,
+      input: {'text': text},
+      context: context
+    },
+      function(err, response) {
+        if (err) {
+          console.log('error:', err);
+        }
+        else {
+          context = response.context;
+          console.log(context);
+          console.log(JSON.stringify(response, null, 2));
+          david_response = response.output.text[0];
+          //tj.stopListening();
+          tj.speak(david_response);
+          console.log(tjConfig.robot.name,"says", david_response);
 
-            if(context.emotion === "sadness"){
-              tj.stopListening();
-              tj.listen(function(text) {
-                assistant.message({
-                  workspace_id: WORKSPACEID,
-                  input: {'text': text},
-                  context: context
-                }, (err, response) => {
-                  context = response.context;
-                  console.log('input text',text);
-                  console.log('context',context);
-                  console.log(JSON.stringify(response, null, 2));
-                  david_response = response.output.text[0];
-                  tj.speak(david_response);
-                  console.log(tjConfig.robot.name,"says", david_response);
-                });
-              });
-            }
-          }
-          else {
+          if(context.emotion === "sadness"){
             tj.stopListening();
-            var context = {};
-            startConvo();
+            tj.listen(function(text) {
+              assistant.message({
+                workspace_id: WORKSPACEID,
+                input: {'text': text},
+                context: context
+              }, (err, response) => {
+                context = response.context;
+                console.log('input text',text);
+                console.log('context',context);
+                console.log(JSON.stringify(response, null, 2));
+                david_response = response.output.text[0];
+                tj.speak(david_response);
+                console.log(tjConfig.robot.name,"says", david_response);
+              });
+            });
           }
+        }
       });
+      var context = {};
+      startConvo();
     });
   });
 }
