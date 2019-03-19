@@ -266,7 +266,7 @@ function toneAndConverse() {
           if(context.emotion === "sadness"){
             tj.stopListening();
             tj.listen(function(text) {
-              tj.stopListening();
+              tj.pauseListening();
               assistant.message({
                 workspace_id: WORKSPACEID,
                 input: {'text': text},
