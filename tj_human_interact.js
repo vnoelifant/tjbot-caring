@@ -1,3 +1,4 @@
+
 /**
  * Copyright 2016-2018 IBM Corp. All Rights Reserved.
  * Modifications Copyright 2019 Veronica Medrano
@@ -71,7 +72,7 @@ var credentials = config.credentials;
 var WORKSPACEID = config.workspaceId;
 
 // these are the hardware capabilities that TJ needs
-var hardware = ['microphone', 'speaker', 'led']//,'servo'];
+var hardware = ['microphone', 'speaker', 'led','servo'];
 
 // obtain TJBot's configuration from config.js
 var tjConfig = config.tjConfig;
@@ -118,11 +119,7 @@ const text_to_speech = new watson.TextToSpeechV1({
 });
 */
 
-// Testing Robot name
-console.log(tjConfig.robot.name, "wants to know your feelings");
-
-
-// set confidence bound
+// set confidence bound for tone detection
 var CONFIDENCE_THRESHOLD = 0.5;
 
     /**
@@ -168,7 +165,7 @@ const getEmotion = (text) => {
     // }
 
       var emotionalTones = tone.document_tone.tones.filter(function(t) {
-        return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness';
+        return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness' || t.tone_id == 'analytical';
       });
 
       //extract most prevalent tone
@@ -181,6 +178,7 @@ const getEmotion = (text) => {
         if (maxTone.score >= CONFIDENCE_THRESHOLD) {
           emotion = maxTone.tone_id;
           maxScore = maxTone.score
+          console.log("tone response",tone.document_tone.tones)
           console.log("Current emotion is " + emotion);
           //resolve(emotion)
           shineLedEmo(emotion);
@@ -236,96 +234,125 @@ function shineLedEmo(emotion) {
   }
 }
 
-// DETECT SPEECH, CONVERT IT TO TEXT,
-function speechToText(text) {
+
+// CONVERSATION
+
+console.log("Start by greeting ",tjConfig.robot.name, "first before stating how you are feeling or just state your mood right away");
+
+// either begin conversation by greeting David first or stating your mood initially
+tj.listen(function(text) {
+    tj.stopListening();
+    text = text.toLowerCase();
+    console.log('David hears: ', text);
+
+
+  // if you start by saying "Hey David"
+  if (text.indexOf(tjConfig.robot.name.toLowerCase()) >= 0) {
+    greetDavid();
+  }
+  // if you immiediately express your mood
+  else {
+    startConvo(text);
+
+  }
+});
+
+//if you start by saying "Hey David"
+function greetDavid() {
+  tj.wave();
+  tj.speak("Yes what is it dear?");
+  tj.listen(function(text) {
+    tj.stopListening();
+    startConvo(text);
+  });
+}
+
+
+
+// CONVERSATION DEALING WITH GENERAL WELFARE
+function startConvo(text) {
   //tj.listen(function(text) {
-  // DETECT TONE
-  tj.shine('blue');
-  //tj.wave();
-  tj.pauseListening();
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
     //tj.wave(); // David indicates he heard you through arm wave
-    // START CONVERSATION
     assistant.message(
     {
       workspace_id: WORKSPACEID,
       input: {'text': text},
       context: context
-    },
-      function(err, response) {
-        if (err) {
-          console.log('error:', err);
-        }
-        else {
-          context = response.context;
-          console.log(context);
-          console.log(JSON.stringify(response, null, 2));
-          david_response = response.output.text[0];
-          //tj.stopListening();
-          tj.speak(david_response);
-          console.log(tjConfig.robot.name,"says", david_response);
-
-          if(context.emotion === "sadness"){
-            ///tj.stopListening();
-            tj.listen(function(text) {
+    },(err, response) => {
+      context = response.context;
+      console.log(context);
+      console.log(JSON.stringify(response, null, 2));
+      david_response = response.output.text[0];
+      tj.speak(david_response);
+      console.log(tjConfig.robot.name,"says", david_response);
+      if(context.emotion === "sadness"){
+        //tj.stopListening();
+        tj.listen(function(text) {
+          assistant.message({
+            workspace_id: WORKSPACEID,
+            input: {'text': text},
+            context: context
+          }, (err, response) => {
+            context = response.context;
+            console.log('input text',text);
+            console.log('context',context);
+            console.log(JSON.stringify(response, null, 2));
+            david_response = response.output.text[0];
+            tj.speak(david_response);
+            console.log(tjConfig.robot.name,"says", david_response);
+            if (response.intents[0].intent === "advicegood"){
               tj.pauseListening();
-              assistant.message({
-                workspace_id: WORKSPACEID,
-                input: {'text': text},
-                context: context
-              }, (err, response) => {
-                context = response.context;
-                console.log("intent",response.intents[0].intent);
-                console.log('input text',text);
-                console.log('context',context);
-                console.log('emotion',context.emotion)
-                console.log(JSON.stringify(response, null, 2));
-                david_response = response.output.text[0];
-                tj.speak(david_response);
-                console.log(tjConfig.robot.name,"says", david_response);
-                console.log(context);
-                tj.resumeListening();
-                // attempt to switch to happy mood
-                if (response.intents[0].intent === "advicegood"){
-                  tj.stopListening();
-                  context = {};
-                  console.log("context",context);
-                  console.log("intent",response.intents[0].intent);
-                  console.log("input text",response.input.text);
-                  console.log('input text',text);
-                  console.log('emotion',context.emotion)
-                  //var sadToHappyText = response.input.text;
-                  var sadToHappyText = text;
-                  //tj.listen(speechToText(sadToHappyText));
-                  //tj.listen(speechToText);
+              context = {};
+              context.emotion = "joy";
+              context = response.context;
+              console.log("context",context);
+              console.log("intent",response.intents[0].intent);
+              console.log("input text",response.input.text);
+              console.log('input text',text);
+              console.log('emotion',context.emotion);
+              //tj.stopListening();
+              getEmotion(text).then((detectedEmotion) => {
+                var context = {};
+                context.emotion = detectedEmotion.emotion;
+                var maxScore = detectedEmotion.maxScore;
+                console.log('context.emotion',context.emotion);
+                if (maxScore > 0.7) {
+                  // wave arm three times
+                  [1,2,3].forEach(function(i) {
+                  tj.wave(); // change to dance
+                  });
                 }
-                  //context = {};
-                  //console.log(response.intents[0].intent);
-                  //console.log(context);
-                  //toneAndConverse();
-                //}
-                // attempt to //detect new tone (2 works after 2 responses)
-                //if (context.system.dialog_turn_counter == 1) {
-                //if (context.system.dialog_stack[0].dialog_node === 'Conversation_Start') {
-                  //context = {};
-                  //startConvo();
-                //}
-                //}
-              });
-            });
-          }
-        }
-      });
-    });
-  //});
+                else {
+                  // wave arm one time
+                  tj.wave(); // or not at all {};
+                }
+                assistant.message({
+                workspace_id: WORKSPACEID,
+                  input: {'text': text},
+                  context: context
+                }, (err, response) => {
+                  context = response.context;
+                  console.log('input text',text);
+                  console.log('context',context);
+                  console.log(JSON.stringify(response, null, 2));
+                  david_response = response.output.text[0];
+                  tj.speak(david_response);
+                  console.log(tjConfig.robot.name,"says",david_response);
+                  tj.resumeListening();
+
+                  });
+                });
+            }
+
+          });
+        });
+      }
+
+   });
+  });
+
 }
-
-tj.listen(speechToText);
-
-
-
-
-
