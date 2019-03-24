@@ -2,46 +2,278 @@
   "name": "tjbot-caring",
   "intents": [
     {
+      "intent": "advicegood",
+      "examples": [
+        {
+          "text": "It was just what I needed. Thank you so much."
+        },
+        {
+          "text": "Yes it was just what I needed."
+        },
+        {
+          "text": "Yes it certainly was very helpful! Thanks again!"
+        },
+        {
+          "text": "Yes it was amazing!"
+        },
+        {
+          "text": "It was! Thanks again!"
+        },
+        {
+          "text": "Your words were extremely helpful! Thanks again!"
+        },
+        {
+          "text": "Very helpful!"
+        },
+        {
+          "text": "Your advice was amazing! Thanks again!"
+        },
+        {
+          "text": "Your advice was just what I needed! Thanks again!"
+        },
+        {
+          "text": "Yes it was just perfect."
+        }
+      ],
+      "description": "User is satisfied by advice TJ gives when TJ asks whether his response helped."
+    },
+    {
+      "intent": "love",
+      "examples": [
+        {
+          "text": "Okay I love you too"
+        },
+        {
+          "text": "I love you so much"
+        },
+        {
+          "text": "I love you"
+        },
+        {
+          "text": "I love you too"
+        },
+        {
+          "text": "I love you too David."
+        },
+        {
+          "text": "I love you more!"
+        }
+      ],
+      "description": "User expresses love to robot"
+    },
+    {
+      "intent": "needmoreadvice",
+      "examples": [
+        {
+          "text": "No. You don't understand."
+        },
+        {
+          "text": "Kind of. But I want more advice."
+        },
+        {
+          "text": "A little bit. But I want to talk more about this."
+        },
+        {
+          "text": "It didn't really help."
+        },
+        {
+          "text": "No it didn't help."
+        },
+        {
+          "text": "No it didn't"
+        },
+        {
+          "text": "It was a little helpful. But I need more advice."
+        },
+        {
+          "text": "Not really. I still need some more help."
+        }
+      ],
+      "description": "User needs more advice after TJ checks whether his response was helpful"
+    },
+    {
+      "intent": "noadvice",
+      "examples": [
+        {
+          "text": "Not today."
+        },
+        {
+          "text": "I don't want to talk about it."
+        },
+        {
+          "text": "Let's talk about it another time."
+        },
+        {
+          "text": "No thanks."
+        }
+      ],
+      "description": "User does not want to talk about why they have a certain mood."
+    },
+    {
+      "intent": "regret",
+      "examples": [
+        {
+          "text": "How do I deal with the regret of making a wrong choice?"
+        },
+        {
+          "text": "I regret getting int that relationship."
+        },
+        {
+          "text": "I regret so many things."
+        },
+        {
+          "text": "I am not sure getting in the relationship was aright choice."
+        },
+        {
+          "text": "I feel so much regret from making a bad choice."
+        },
+        {
+          "text": "I just feel a lot of regret."
+        }
+      ],
+      "description": "User expresses regret and wants advice on how to cope with that."
+    },
+    {
+      "intent": "yesadvice",
+      "examples": [
+        {
+          "text": "Yes that would be great."
+        },
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "Yes please."
+        }
+      ],
+      "description": "User wants to receive advice for mood."
+    },
+    {
+      "intent": "breakup",
+      "examples": [
+        {
+          "text": "I just broke up with my boyfriend."
+        },
+        {
+          "text": "I just got out of a breakup."
+        },
+        {
+          "text": "I just broke up with my girlfriend."
+        },
+        {
+          "text": "I just got dumped."
+        },
+        {
+          "text": "I'm dealing with a breakup."
+        },
+        {
+          "text": "I'm having a hard time with my breakup."
+        },
+        {
+          "text": "I'm dealing with a really difficult breakup."
+        }
+      ],
+      "description": "User just got out of a relationship and wants to potentially talk about it with TJBot"
+    },
+    {
+      "intent": "jobloss",
+      "examples": [
+        {
+          "text": "I just lost my job."
+        },
+        {
+          "text": "My manager fired me."
+        },
+        {
+          "text": "I just got fired."
+        },
+        {
+          "text": "My career is over."
+        }
+      ],
+      "description": "User has experienced a job loss and potentially wants to talk more about it with TJBot."
+    },
+    {
       "intent": "appreciation",
       "examples": [
         {
-          "text": "Thank you so much for your support."
+          "text": "Thank you"
         },
         {
-          "text": "Thanks for listening."
+          "text": "Thank you so much."
+        },
+        {
+          "text": "Thanks.  It means a lot to hear."
+        },
+        {
+          "text": "Okay, I appreciate your advice."
+        },
+        {
+          "text": "Thanks it means a lot."
         },
         {
           "text": "Thank you for believing in me."
         },
         {
-          "text": "Okay, I appreciate your advice."
+          "text": "Thanks for listening."
+        },
+        {
+          "text": "Thank you so much for your support."
         }
       ],
       "description": "Showing TJBot appreciation for his response to mood"
     },
     {
-      "intent": "breakupadvice",
+      "intent": "relatetofilm",
       "examples": [
         {
-          "text": "I just got out of a relationship."
+          "text": "Wow I have seen that film too and love that quote!"
         },
         {
-          "text": "I got dumped."
+          "text": "That film is incredible. Hearing that quote again means so much."
         },
         {
-          "text": "I had a terrible breakup."
+          "text": "That is one of my favourite quotes."
         },
         {
-          "text": "I need help talking about my breakup."
-        },
-        {
-          "text": "I broke up with my boyfriend."
+          "text": "That's one of my favourite films."
         }
       ],
-      "description": "need support from David regarding recent breakup"
+      "description": "User expresses dialogue that relates to TJBot as he provides feedback on response"
+    },
+    {
+      "intent": "anthing_else",
+      "examples": [],
+      "description": ""
+    },
+    {
+      "intent": "mindreader",
+      "examples": [
+        {
+          "text": "How did you know that's one of my favourite films? Are you a mind reader?"
+        },
+        {
+          "text": "Wow are you a mind reader? That's one of my favourite films and quotes!"
+        },
+        {
+          "text": "Unbelievable are you a mind reader? That's one of my favourite films and quotes."
+        }
+      ],
+      "description": "User is surprised to find that TJ has related interets."
     }
   ],
   "entities": [
+    {
+      "entity": "david",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "david",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
     {
       "entity": "situation",
       "values": [
@@ -50,6 +282,14 @@
           "value": "breakup",
           "synonyms": [
             "relationship"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "job loss",
+          "synonyms": [
+            "career",
+            "fired"
           ]
         }
       ],
@@ -72,16 +312,19 @@
           {
             "values": [
               {
-                "text": "I love you!"
+                "text": "It's great to hear you're in a good mood! I love you!"
               },
               {
-                "text": "You kick butt!"
+                "text": "Yay! You kick butt!"
               },
               {
                 "text": "I am so glad you are happy. "
               },
               {
                 "text": "Let's party baby!"
+              },
+              {
+                "text": "Yay! Let's party!"
               }
             ],
             "response_type": "text",
@@ -122,6 +365,32 @@
           {
             "values": [
               {
+                "text": "Awww. Why are you sad? Want to talk about it?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_1_1550644609790",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1552359274164"
+      },
+      "conditions": "$emotion=='sadness'",
+      "dialog_node": "node_1_1551782003487",
+      "previous_sibling": "node_4_1553248104446"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
                 "text": "Relax. Take a deep breath. It'll all be okay."
               }
             ],
@@ -136,40 +405,14 @@
       "previous_sibling": "node_1_1551782003487"
     },
     {
-      "type": "response_condition",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Aw. Why are you sad? Want to talk about it?"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "random"
-          }
-        ]
-      },
-      "parent": "node_1_1550644609790",
-      "metadata": {},
-      "next_step": {
-        "behavior": "jump_to",
-        "selector": "condition",
-        "dialog_node": "node_1_1552359274164"
-      },
-      "conditions": "$emotion=='sadness'",
-      "dialog_node": "node_1_1551782003487",
-      "previous_sibling": "node_1_1552359274164"
-    },
-    {
       "type": "standard",
-      "title": "Sad Response",
+      "title": "Anything else",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "I'm so sorry. Things will get better. I promise!"
+                "text": "Tell me your feelings"
               }
             ],
             "response_type": "text",
@@ -178,17 +421,22 @@
         ]
       },
       "parent": "node_1_1550644609790",
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "node_4_1553248104446",
+      "previous_sibling": "node_1_1552359274164"
+    },
+    {
+      "type": "standard",
+      "title": "Sad Response",
+      "output": {},
+      "parent": "node_1_1550644609790",
       "metadata": {
         "_customization": {
-          "mcr": false
+          "mcr": true
         }
       },
-      "next_step": {
-        "behavior": "jump_to",
-        "selector": "user_input",
-        "dialog_node": "node_3_1552689884327"
-      },
-      "conditions": "#breakupadvice",
+      "conditions": "true",
       "dialog_node": "node_1_1552359274164",
       "digress_out": "allow_all"
     },
@@ -199,7 +447,7 @@
           {
             "values": [
               {
-                "text": "I'm so sorry. Things will get better. I promise!"
+                "text": "Anytime. Did my response help?"
               }
             ],
             "response_type": "text",
@@ -207,31 +455,164 @@
           }
         ]
       },
-      "parent": "node_1_1552359274164",
-      "disabled": true,
+      "parent": "node_9_1552961368046",
       "metadata": {},
-      "dialog_node": "node_1_1552688162247",
-      "previous_sibling": "node_3_1552689884327"
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1552961686540"
+      },
+      "conditions": "#appreciation",
+      "dialog_node": "node_17_1552966517589"
     },
     {
       "type": "response_condition",
-      "output": {},
-      "parent": "node_1_1552359274164",
-      "disabled": true,
-      "metadata": {},
-      "conditions": "$emotion",
-      "dialog_node": "node_2_1552688182762",
-      "previous_sibling": "node_1_1552688162247"
-    },
-    {
-      "type": "standard",
-      "title": "Show Appreciation",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "Any time. I am always here for you. "
+                "text": "I'm so sorry. Things will get better. I promise."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1552961166317",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1552961368046"
+      },
+      "conditions": "#breakup",
+      "dialog_node": "node_7_1552961250002",
+      "previous_sibling": "node_9_1552961368046"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I'm so sorry. You're so smart and I believe you can accomplish anything."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1552961166317",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1552961368046"
+      },
+      "conditions": "#jobloss",
+      "dialog_node": "node_8_1552961262471",
+      "previous_sibling": "node_7_1552961250002"
+    },
+    {
+      "type": "standard",
+      "title": "Show Appreciation",
+      "output": {},
+      "parent": "node_6_1552961166317",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#appreciation",
+      "dialog_node": "node_9_1552961368046",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_10_1552961686540"
+    },
+    {
+      "type": "standard",
+      "title": "User Feedback",
+      "output": {},
+      "parent": "node_6_1552961166317",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#needmoreadvice || #advicegood && $emotion",
+      "dialog_node": "node_10_1552961686540",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "standard",
+      "title": "Emotion Response",
+      "output": {},
+      "parent": "node_1_1552974993910",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1550644609790",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am sorry. I have dealt with regret myself. I recently saw the film Arrival and this one quote from the character Louis has stuck with me and made me think more about regret and happiness in life. It goes like this. Despite knowing the journey and where it leads, I embrace it and welcome every moment."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_13_1552961880144",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_16_1552965054218"
+      },
+      "conditions": "#regret",
+      "dialog_node": "node_14_1552961912101",
+      "previous_sibling": "node_16_1552965054218"
+    },
+    {
+      "type": "standard",
+      "title": "Common Interests",
+      "output": {},
+      "parent": "node_13_1552961880144",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1552961686540"
+      },
+      "conditions": "#relatetofilm || #mindreader",
+      "dialog_node": "node_16_1552965054218",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay. What seems to be going on?"
               }
             ],
             "response_type": "text",
@@ -241,8 +622,194 @@
       },
       "parent": "node_1_1552359274164",
       "metadata": {},
-      "conditions": "#appreciation",
-      "dialog_node": "node_3_1552689884327"
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_6_1552961166317"
+      },
+      "conditions": "#yesadvice",
+      "dialog_node": "node_1_1552688162247",
+      "previous_sibling": "node_6_1552961166317"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay. I understand. Let me know if you ever want to talk."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://www.theguardian.com/film/2018/jun/23/david-lynch-gotta-be-selfish-twin-peaks#img-1",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_1_1552359274164",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1552961368046"
+      },
+      "conditions": "#noadvice",
+      "dialog_node": "node_2_1552695914457",
+      "previous_sibling": "node_1_1552688162247"
+    },
+    {
+      "type": "standard",
+      "title": "Give advice",
+      "output": {},
+      "parent": "node_1_1552359274164",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_6_1552961166317",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Not to brag, but I know everything. You have incredible taste. I assume, then that my response now helped? I sure hope so dear!"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "node_16_1552965054218",
+      "metadata": {},
+      "conditions": "#mindreader",
+      "dialog_node": "node_20_1552967838815",
+      "previous_sibling": "node_19_1552967802897"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You have great taste Veronica. I assume my response is good then? I sure hope so! Please let me know if I can do anything else for you dear!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_16_1552965054218",
+      "metadata": {},
+      "conditions": "#relatetofilm",
+      "dialog_node": "node_19_1552967802897"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I'm happy to have helped. I can see you are now experiencing $emotion. I love you and am always here for you."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1552961686540",
+      "context": {
+        "emotion": "joy"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1553072285841"
+      },
+      "conditions": "#advicegood and $emotion",
+      "dialog_node": "node_3_1553051573450",
+      "previous_sibling": "node_11_1552961717273"
+    },
+    {
+      "type": "standard",
+      "title": "Show Love",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am so happy to hear that. Goodbye for now. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1552961686540",
+      "metadata": {},
+      "conditions": "#love",
+      "dialog_node": "node_1_1553072285841",
+      "previous_sibling": "node_13_1552961880144"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok. I'm happy to help you more. Tell me what's on your mind and I'll do my best to offer support."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1552961686540",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_13_1552961880144"
+      },
+      "conditions": "#needmoreadvice",
+      "dialog_node": "node_11_1552961717273",
+      "previous_sibling": "node_1_1553072285841"
+    },
+    {
+      "type": "standard",
+      "title": "Elaboration",
+      "output": {},
+      "parent": "node_10_1552961686540",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_10_1552961686540"
+      },
+      "conditions": "#regret",
+      "dialog_node": "node_13_1552961880144",
+      "digress_out": "allow_all"
     },
     {
       "type": "standard",
@@ -269,21 +836,29 @@
       "metadata": {},
       "conditions": "anything_else",
       "dialog_node": "Anything else",
-      "previous_sibling": "node_1_1550644609790"
+      "previous_sibling": "node_1_1552974993910"
     },
     {
       "type": "standard",
-      "title": "Emotion Response",
-      "output": {},
-      "metadata": {
-        "_customization": {
-          "mcr": true
-        }
+      "title": "Conversation_Start",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
       },
-      "conditions": "$emotion",
-      "digress_in": "returns",
-      "dialog_node": "node_1_1550644609790",
-      "digress_out": "allow_all"
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1550644609790"
+      },
+      "conditions": "true",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1552974993910"
     }
   ],
   "workspace_id": "a4395b70-cee4-46be-a1bd-f2ce57e1f5af",
