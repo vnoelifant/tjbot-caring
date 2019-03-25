@@ -5,15 +5,15 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 ### OVERVIEW OF SOFTWARE AND HARDWARE REQUIRED
 
 * **Hardware**: 
-    * TJBot Kit
-    *  Raspberry Pi 3
-    *  USB Microphone
-    *  Mini Bluetooth speaker
-    *  Servo Motor
-    *  NeoPixel RGB LED (8 mm)
-    *  F-F plus F-M jumper wires
-    *  Raspberry Pi Camera
-    *  Installation instructions shown [here](https://github.com/ibmtjbot/tjbot)
+  * TJBot Kit
+  *  Raspberry Pi 3
+  *  USB Microphone
+  *  Mini Bluetooth speaker
+  *  Servo Motor
+  *  NeoPixel RGB LED (8 mm)
+  *  F-F plus F-M jumper wires
+  *  Raspberry Pi Camera
+  *  Installation instructions shown [here](https://github.com/ibmtjbot/tjbot)
   
   * **Software**:  
     * tjbot software
@@ -62,19 +62,9 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
 
  ![](screenshots/sadToHappyDialogue_3.png)
 
- ### Find more mages of the dialogue node tree structure [here](https://github.com/vnoelifant/tjbot-caring/tree/master/screenshots). 
+ Find more mages of the dialogue node tree structure [here](https://github.com/vnoelifant/tjbot-caring/tree/master/screenshots). 
 
- ### Find preliminary test files and weekly status notes for my project in this [PROGRESS](https://github.com/vnoelifant/tjbot-caring/blob/master/PROGRESS.md) section.
-
- 
-
-
-
-
-
-
-
-
+ Find preliminary test files and weekly status notes for my project in this [PROGRESS](https://github.com/vnoelifant/tjbot-caring/blob/master/PROGRESS.md) section.
 
 
 
