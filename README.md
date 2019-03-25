@@ -13,7 +13,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
     *  NeoPixel RGB LED (8 mm)
     *  F-F plus F-M jumper wires
     *  Raspberry Pi Camera
-    *  Installation instructions shown [here](https://github.com/ibmtjbot/tjbot
+    *  Installation instructions shown [here](https://github.com/ibmtjbot/tjbot)
   
   * **Software**:  
     * tjbot software
@@ -30,7 +30,24 @@ This is a project to build/program a simple, caring emotionally intelligent robo
       * Node.js library to access IBM Watson Services shown [here]https://github.com/watson-developer-cloud/node-sdk
         * Installation instructions shown [here]https://github.com/watson-developer-cloud/node-sdk
 
-### OPERATING AND INSTALLING TJBOT SOFTWARE
+### TJBot and Watson System Overview
+
+![](references/tjbotWatson.png)
+
+In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Assistant service to update service context to represent the detected tone, and generate requests for additional responses from TJBot, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
+
+### WATSON CLOUD SERVICES OVERVIEW
+
+An excellent reference on how the client services interface with the Watson servier is shown in IBM's [Watson Cloud Service Deep Dive Manual](https://github.com/vnoelifant/tjbot-caring/blob/master/references/wcs_deepdive.pdf). 
+
+
+In addition, the following Watson CLoud Service documentation should be read over to understand how to use the Watson Services. 
+
+https://console.bluemix.net/docs/services/assistant/getting-started.html#getting-started
+
+The following section will especially be used for incorporating dialogue. 
+
+https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-overview
 
 
 
