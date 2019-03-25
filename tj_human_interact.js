@@ -165,7 +165,7 @@ const getEmotion = (text) => {
     // }
 
       var emotionalTones = tone.document_tone.tones.filter(function(t) {
-        return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness' || t.tone_id == 'analytical';
+        return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_id == 'sadness';
       });
 
       //extract most prevalent tone
@@ -356,3 +356,4 @@ function startConvo(text) {
   });
 
 }
+
