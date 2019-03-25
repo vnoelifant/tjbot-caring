@@ -41,6 +41,8 @@ In summary, for this project the TJBot Client application makes requests from Wa
 An excellent reference on how the client services interface with the Watson servier is shown in IBM's [Watson Cloud Service Deep Dive Manual](https://github.com/vnoelifant/tjbot-caring/blob/master/references/wcs_deepdive.pdf). 
 
 
+
+ **IN WORK**: System flow diagram updates and data flow description updates. 
 In addition, the following Watson CLoud Service documentation should be read over to understand how to use the Watson Services. 
 
 https://console.bluemix.net/docs/services/assistant/getting-started.html#getting-started
@@ -49,10 +51,16 @@ The following section will especially be used for incorporating dialogue.
 
 https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-overview
 
- **IN WORK**: System flow diagram updates and data flow description updates. 
+Key Watson Assistant Dialogue tools for enhancing dialogue:
+
+Intents:
+ Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
+
 
 ## FINAL DEMO VIDEO
  [![IMAGE ALT TEXT](http://img.youtube.com/vi/qlEsNmaas20/0.jpg)](http://www.youtube.com/watch?v=qlEsNmaas20"Final Demo: David Makes a Sad User Feel Better")
+
+
 
 ## FINAL DIALOGUE INTENTS
 
@@ -65,8 +73,6 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
  Find more mages of the dialogue node tree structure [here](https://github.com/vnoelifant/tjbot-caring/tree/master/screenshots). 
 
  Find preliminary test files and weekly status notes for my project in this [PROGRESS](https://github.com/vnoelifant/tjbot-caring/blob/master/PROGRESS.md) section.
-
-
 
 
 ## License/Notes
