@@ -34,7 +34,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 ![](references/tjbotWatson.png)
 
-In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Watson Tone Analyzer to detect a variety of tones based on set confidence scores, a request to the Assistant service to pass in the detected tone as an additional input, known as the context variable, get back additional responses from TJBot based on additional user input, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
+In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Watson Tone Analyzer to detect a variety of tones based on set confidence scores, a request to the Assistant service to pass in the detected tone as an additional input, known as the context variable, which is state information for the conversation, and a request to get back additional responses from TJBot based on additional user input, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
 
 ### WATSON CLOUD SERVICES OVERVIEW
 
@@ -54,7 +54,12 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
 Key Watson Assistant Dialogue tools for enhancing dialogue:
 
 Intents:
- Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
+ * Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
+
+Context:
+ * State information for the conversation. To maintain state, include the context from the previous response. An exampe of a request body utilizing context is shown below, along with a snipped of this project's code which shows the detected tone as a context variable. 
+
+ 
 
 
 ## FINAL DEMO VIDEO
