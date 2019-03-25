@@ -53,7 +53,7 @@ The following section will especially be used for incorporating dialogue.
 
 https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-overview
 
-Key Watson Assistant Dialogue tools for enhancing dialogue:
+Key Watson Assistant Dialogue tools used for enhancing dialogue:
 
 Intents:
  * Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
