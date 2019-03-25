@@ -51,14 +51,14 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
 
 
 
-##FINAL DEMO VIDEO
+## FINAL DEMO VIDEO
  [![IMAGE ALT TEXT](http://img.youtube.com/vi/qlEsNmaas20/0.jpg)](http://www.youtube.com/watch?v=qlEsNmaas20"Final Demo: David Makes a Sad User Feel Better")
 
-##FINAL DIALOGUE INTENTS
+## FINAL DIALOGUE INTENTS
 
 ![](screenshots/sadToHappyDialogue_intents.png)
 
-###FINAL HIGHLIGHT OF THE DIALOGUE TREE STRUCTURE
+### FINAL HIGHLIGHT OF THE DIALOGUE TREE STRUCTURE
 
  ![](screenshots/sadToHappyDialogue_3.png)
 
@@ -66,7 +66,7 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
 
  ### Find preliminary test files and weekly status notes for my project in this [PROGRESS](https://github.com/vnoelifant/tjbot-caring/blob/master/PROGRESS.md) section.
 
-  **IN WORK**: System flow diagrams and snapshots of the dialogue, shown in the form of "nodes" and README updates. 
+  **IN WORK**: Additional System flow diagram update
 
 
 
