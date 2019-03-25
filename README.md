@@ -34,7 +34,7 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 ![](references/tjbotWatson.png)
 
-In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Assistant service to update service context to represent the detected tone, and generate requests for additional responses from TJBot, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
+In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Watson Tone Analyzer to detect a variety of tones based on set confidence scores, a request to the Assistant service to pass in the detected tone as an additional input, known as the context variable, get back additional responses from TJBot based on additional user input, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
 
 ### WATSON CLOUD SERVICES OVERVIEW
 
