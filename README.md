@@ -32,7 +32,9 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 ### TJBot and Watson System Overview
 
+Source: Cruz-Parada, Pedro & Zamudio, Victor & Navarro, Javier & Lino, Carlos & Gutierrez Hernandez, David & Baltazar, Rosario. (2018). Identification and Analysis of Emotions in a Game Based Therapy for Patients with Cognitive Impairment. 10.3233/978-1-61499-874-7-506. 
 ![](references/tjbotWatson.png)
+
 
 In summary, for this project the TJBot Client application makes requests from Watson Services for the Speech to Text Service to send user speech to text conversions, a request to the Watson Tone Analyzer to detect a variety of tones based on set confidence scores, a request to the Assistant service to pass in the detected tone as an additional input, known as the context variable, which is state information for the conversation, and a request to get back additional responses from TJBot based on additional user input, and request to the Text-To-Speech service to convert TJBot's text to voice to speak back to the user. 
 
