@@ -73,11 +73,11 @@ Context:
 
 ## FINAL DIALOGUE INTENTS
 
-![](screenshots/sadToHappyDialogue_intents.png)
+![](references/sadToHappyDialogue_intents.png)
 
 ### FINAL HIGHLIGHT OF THE DIALOGUE TREE STRUCTURE
 
- ![](screenshots/sadToHappyDialogue_3.png)
+![](references/sadToHappyDialogue_3.png)
 
  Find more mages of the dialogue node tree structure [here](https://github.com/vnoelifant/tjbot-caring/tree/master/screenshots). 
 
