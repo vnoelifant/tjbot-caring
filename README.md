@@ -6,29 +6,30 @@ This is a project to build/program a simple, caring emotionally intelligent robo
 
 * **Hardware**: 
   * TJBot Kit
-  *  Raspberry Pi 3
-  *  USB Microphone
-  *  Mini Bluetooth speaker
-  *  Servo Motor
-  *  NeoPixel RGB LED (8 mm)
-  *  F-F plus F-M jumper wires
-  *  Raspberry Pi Camera
-  *  Installation instructions shown [here](https://github.com/ibmtjbot/tjbot)
+  * Raspberry Pi 3
+  * USB Microphone
+  * Mini Bluetooth speaker
+  * Servo Motor
+  * NeoPixel RGB LED (8 mm)
+  * F-F plus F-M jumper wires
+  * Raspberry Pi Camera
+  * Installation instructions shown [here](https://github.com/ibmtjbot/tjbot)
   
-  * **Software**:  
-    * tjbot software
-      * Installation instructions shown [here](https://github.com/ibmtjbot/tjbot). 
-    * APIs from Watson Developer Cloud: IBM Watson Services as follows: 
-      * Speech to Text (enables TJBot to listen to users speak and transcribe it to text)
-      * Text to Speech (enables TJBot to speak)
-      * Tone Analyzer (enables TJBot to detect emotions in text)
-      * Watson Assistant (builds conversational interface with TJBot)
-      * Visual Recognition (trains TJBot to recognize facial expressions) 
-      * Node.js (to interface with these Watson Services)
-      * Twitter API (to allow TJBot to detect emotions in tweets)
-      * TJBot library to abstract basic functions for TJBot shown [here](https://github.com/ibmtjbot/tjbotlib). 
-      * Node.js library to access IBM Watson Services shown [here]https://github.com/watson-developer-cloud/node-sdk
-        * Installation instructions shown [here]https://github.com/watson-developer-cloud/node-sdk
+* **Software**:  
+  * tjbot software
+    * Installation instructions shown [here](https://github.com/ibmtjbot/tjbot). 
+  * APIs from Watson Developer Cloud: IBM Watson Services as follows: 
+  * Speech to Text (enables TJBot to listen to users speak and transcribe it to text)
+  * Text to Speech (enables TJBot to speak)
+  * Tone Analyzer (enables TJBot to detect emotions in text)
+  * Watson Assistant (builds conversational interface with TJBot)
+  * Visual Recognition (trains TJBot to recognize facial expressions) 
+  * Node.js (to interface with these Watson Services)
+  * Twitter API (to allow TJBot to detect emotions in tweets)
+  * TJBot library to abstract basic functions for TJBot shown [here](https://github.com/ibmtjbot/tjbotlib). 
+  * Node.js library to access IBM Watson Services shown [here]https://github.com/watson-developer-cloud/node-sdk
+  * Installation instructions shown [here]https://github.com/watson-developer-cloud/node-sdk
+    * assistant.message method used from this library to call the conversation service to send requests with emotional tone input, to allow the conversational agent (in this case TJBot) to interact with the user based on the tone. 
 
 ### TJBot and Watson System Overview
 
@@ -59,8 +60,9 @@ Intents:
  * Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
 
 Context:
- * State information for the conversation. To maintain state, include the context from the previous response. An exampe of a request body utilizing context is shown below, along with a snipped of this project's code which shows the detected tone as a context variable. 
+ * State information for the conversation. To maintain state, include the context from the previous response. An exampe of this project's request body utilizing context is shown below. In this case, the detected emotional tone is the context variable to be updated.  In order to integrate the Tone Analyzer with the Assistant service, we must Intercept the user's message. Before sending it to the Assistant service, we must invoke the Tone Analyzer Service. To do this, we send the user input, along with the updated context object in the payload to the Assistant service. See this project's call to assistant.message passing in the emotional tone as the updated context. 
 
+![](references/context_code.png)
  
 
 
