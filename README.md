@@ -49,7 +49,7 @@ The following section will especially be used for incorporating dialogue.
 
 https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-overview
 
-
+ **IN WORK**: System flow diagram updates and data flow description updates. 
 
 ## FINAL DEMO VIDEO
  [![IMAGE ALT TEXT](http://img.youtube.com/vi/qlEsNmaas20/0.jpg)](http://www.youtube.com/watch?v=qlEsNmaas20"Final Demo: David Makes a Sad User Feel Better")
@@ -66,7 +66,8 @@ https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-
 
  ### Find preliminary test files and weekly status notes for my project in this [PROGRESS](https://github.com/vnoelifant/tjbot-caring/blob/master/PROGRESS.md) section.
 
-  **IN WORK**: Additional System flow diagram update
+ 
+
 
 
 
