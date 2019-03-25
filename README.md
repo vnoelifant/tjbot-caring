@@ -53,14 +53,27 @@ The following section will especially be used for incorporating dialogue.
 
 https://console.bluemix.net/docs/services/assistant/dialog-overview.html#dialog-overview
 
+Here is a video from the site above that shows how to build a dialogue. 
 
-**Key Watson Assistant Dialogue tools used for enhancing dialogue:**
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/XkhAMe9gSFU/0.jpg)](http://www.youtube.com/watch?v=XkhAMe9gSFU" Building A Dialogue with Watson Assistant")
+
+
+Wait for user input: The service pauses until new input is provided by the user.
+Skip user input: The service jumps directly to the first child node. This option is only available if the current node has at least one child node.
+Jump to: The service continues the dialog by processing the node you specify. You can choose whether the service should evaluate the target node's condition or skip directly to the target node's response. See Configuring the Jump to action for more details.
+
+
+**Key Watson Assistant Dialogue feautures  used**
 
   * **Intents**:
     * Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it.
 
   * **Context**:
     * State information for the conversation. To maintain state, include the context from the previous response. An exampe of this project's request body utilizing context is shown below. In this case, the detected emotional tone is the context variable to be updated.  In order to integrate the Tone Analyzer with the Assistant service, we must Intercept the user's message. Before sending it to the Assistant service, we must invoke the Tone Analyzer Service. To do this, we send the user input, along with the updated context object in the payload to the Assistant service. See this project's call to assistant.message passing in the emotional tone as the updated context. 
+
+  * **Wait for user input**: The service pauses until new input is provided by the user.
+
+  *  **Jump to**: The service continues the dialog by processing the node you specify. You can choose whether the service should evaluate the target node's condition or skip directly to the target node's response. See Configuring the Jump to action for more details.
 
 ![](references/context_code.png)
  
