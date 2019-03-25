@@ -42,9 +42,7 @@ In summary, for this project the TJBot Client application makes requests from Wa
 
 An excellent reference on how the client services interface with the Watson servier is shown in IBM's [Watson Cloud Service Deep Dive Manual](https://github.com/vnoelifant/tjbot-caring/blob/master/references/wcs_deepdive.pdf). 
 
-
-
- **IN WORK**: System flow diagram updates and data flow description updates. 
+ **IN WORK**: Other more low level system flow diagram updates and data flow description updates. 
 In addition, the following Watson Cloud Service documentation should be read over to understand how to use the Watson Services. 
 
 https://console.bluemix.net/docs/services/assistant/getting-started.html#getting-started
@@ -58,12 +56,19 @@ Here is a video from the site above that shows how to build a dialogue.
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/XkhAMe9gSFU/0.jpg)](http://www.youtube.com/watch?v=XkhAMe9gSFU" Building A Dialogue with Watson Assistant")
 
 
-Wait for user input: The service pauses until new input is provided by the user.
-Skip user input: The service jumps directly to the first child node. This option is only available if the current node has at least one child node.
-Jump to: The service continues the dialog by processing the node you specify. You can choose whether the service should evaluate the target node's condition or skip directly to the target node's response. See Configuring the Jump to action for more details.
+* Key components to create dialogue is outlined below:
+    +  **Create skill**: a container for all of the artifacts that define a conversation flow.
+    +  **Create intent**: define's user's goal or purpose, TJ detects this intent identified by a hashtag based on user-defined phrases (User examples in Watson Assistant)
+    +  **Add entities**: Watson’s way of handling significant parts of input used to alter way it responds to intent
+    +  **Create dialogue**: uses intents and entities plus context from app to interact with user and provide a response
+        *  Add nodes in Watson Assistant
+            -  Nodes contain triggers and responses
+                +  Triggers are conditions and if the user input matches a certain condition, the response from TJ is executed 
+                +  Trigger can be a context variable.  This is used if the context variable expression that you specify is true. Use the syntax, $variable_name:value or $variable_name == 'value'. This data exists in the .js code and passed to Assistant service. 
+    + Can test dialogue in Watson Assistant's Try it Out panel
 
 
-**Key Watson Assistant Dialogue feautures  used**
+**Key Watson Assistant Dialogue feautures used in particular with this project**
 
   * **Intents**:
     * Intents are purposes or goals expressed in a customer's input, such as answering a question or processing a bill payment. By recognizing the intent expressed in a customer's input, the Watson Assistant service can choose the correct dialog flow for responding to it. Intents are very simple to add in Watson Services. Simply add a user goal accompanied by a hashtag, such as "getadvice" and provide user examples containing phrases indicating that intent. For instance, for "getadvice" you can add, "I need help David" or "Please give me advice on an issue". The more user examples the user provides for these intents, the better trained Watson will be in recognizing your intent. 
