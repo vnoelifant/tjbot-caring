@@ -80,6 +80,9 @@ var tjConfig = config.tjConfig;
 // instantiate TJBot
 var tj = new TJBot(hardware, tjConfig, credentials);
 
+// get list of LED colors
+var tjColors = tj.shineColors();
+
 // may need for later
 // update attention word to name "David"
 // const attentionWord = tj.tjConfig.robot.name
@@ -240,43 +243,41 @@ function shineLedEmo(emotion) {
 console.log("Start by greeting ",tjConfig.robot.name, "first before stating how you are feeling or just state your mood right away");
 
 // either begin conversation by greeting David first or stating your mood initially
-tj.listen(function(text) {
-    tj.stopListening();
-    text = text.toLowerCase();
-    console.log('David hears: ', text);
-
-
-  // if you start by saying "Hey David"
-  if (text.indexOf(tjConfig.robot.name.toLowerCase()) >= 0) {
-    greetDavid();
-  }
-  // if you immiediately express your mood
-  else {
-    startConvo(text);
-
-  }
-});
-
-//if you start by saying "Hey David"
-function greetDavid() {
-  tj.wave();
-  tj.speak("Yes what is it dear?");
+function myGreeting() {
   tj.listen(function(text) {
-    tj.stopListening();
-    startConvo(text);
+      tj.stopListening();
+      text = text.toLowerCase();
+      console.log('David hears: ', text);
+    // if you start by saying "Hey David"
+    if (text.indexOf(tjConfig.robot.name.toLowerCase()) >= 0) {
+      greetDavid();
+    }
+    // if you immiediately express your mood
+    else {
+      startEmoConvo(text);
+
+    }
   });
+
+  //if you start by saying "Hey David"
+  function greetDavid() {
+    tj.wave();
+    tj.speak("Yes what is it dear?");
+    tj.listen(function(text) {
+      tj.stopListening();
+      startEmoConvo(text);
+    });
+  }
+
 }
 
-
-
 // CONVERSATION DEALING WITH GENERAL WELFARE
-function startConvo(text) {
-  //tj.listen(function(text) {
+function startEmoConvo(text) {
   getEmotion(text).then((detectedEmotion) => {
     var context = {};
     context.emotion = detectedEmotion.emotion;
     console.log('context.emotion',context.emotion);
-    //tj.wave(); // David indicates he heard you through arm wave
+    tj.wave(); // David indicates he heard you through arm wave
     assistant.message(
     {
       workspace_id: WORKSPACEID,
@@ -290,8 +291,8 @@ function startConvo(text) {
       tj.speak(david_response);
       console.log(tjConfig.robot.name,"says", david_response);
       if(context.emotion === "sadness"){
-        //tj.stopListening();
         tj.listen(function(text) {
+          tj.pauseListening();
           assistant.message({
             workspace_id: WORKSPACEID,
             input: {'text': text},
@@ -305,16 +306,13 @@ function startConvo(text) {
             tj.speak(david_response);
             console.log(tjConfig.robot.name,"says", david_response);
             if (response.intents[0].intent === "advicegood"){
-              tj.pauseListening();
               context = {};
               context.emotion = "joy";
               context = response.context;
               console.log("context",context);
               console.log("intent",response.intents[0].intent);
-              console.log("input text",response.input.text);
               console.log('input text',text);
               console.log('emotion',context.emotion);
-              //tj.stopListening();
               getEmotion(text).then((detectedEmotion) => {
                 var context = {};
                 context.emotion = detectedEmotion.emotion;
@@ -330,30 +328,34 @@ function startConvo(text) {
                   // wave arm one time
                   tj.wave(); // or not at all {};
                 }
-                assistant.message({
-                workspace_id: WORKSPACEID,
-                  input: {'text': text},
-                  context: context
-                }, (err, response) => {
-                  context = response.context;
-                  console.log('input text',text);
-                  console.log('context',context);
-                  console.log(JSON.stringify(response, null, 2));
-                  david_response = response.output.text[0];
-                  tj.speak(david_response);
-                  console.log(tjConfig.robot.name,"says",david_response);
-                  tj.resumeListening();
-
-                  });
-                });
+              });
             }
 
           });
         });
       }
+      else if (context.emotion==='joy') {
+        // do a disco dance
+        tj.stopListening();
+        console.log("output",response.output.text[0]);
+        //david_response = response.output.text[0];
+        //tj.speak(david_response);
+        for (i = 0; i < 10; i++) {
+          setTimeout(function() {
+            var randColorIdx = Math.floor(Math.random() * tjColors.length);
+            var randColor = tjColors[randColorIdx];
+            tj.shine(randColor);
+            tj.wave();
+          }, i * 250);
+        }
+        myGreeting();
+      }
+      else {
+        myGreeting();
 
+      }
    });
   });
-
 }
 
+myGreeting();
